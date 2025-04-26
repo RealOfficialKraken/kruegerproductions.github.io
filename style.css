@@ -197,7 +197,7 @@ body{
 }
 
 #particle{
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(0.2em);
     filter: blur(0.2em);
     z-index: 3;
 }
@@ -328,13 +328,13 @@ body{
 }
 
 #small-circle{
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(0.1em);
     filter: blur(0.1em);
     z-index: 2;
 }
 
 #large-circle{
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(0.4em);
     filter: blur(0.4em);
     z-index: 1;
 }
@@ -346,7 +346,7 @@ body{
     top: 0;
     left: 0;
     z-index: 3;
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(14rem);
     backdrop-filter: blur(14rem);
 }
 
