@@ -26,10 +26,18 @@
     --large-circle2-y: 50px;
 }
 
-body, html{
-    overflow-x: hidden;
-    touch-action: pan-y; /** Disable horizontal scrolling */
+html{
+    overflow-y: hidden;
 }
+
+html, body{
+    overflow-x: hidden;
+}
+
+body{
+    position: relative;
+}
+
 
 *{
     inset: 0;
