@@ -543,7 +543,7 @@ This is for small screens
     }
     .flex-links{
         flex-direction: column;
-        height: 800px;
+        height: 50%;
     }
     .pfp{
         display: flex;
