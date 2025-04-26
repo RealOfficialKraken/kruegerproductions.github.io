@@ -43,7 +43,6 @@ body{
 
 .navbar-main{
     display: grid;
-    grid-template-columns: 1fr 1fr;
     align-items: center;
     background-image: transparent;
     width: 100%;
@@ -290,7 +289,6 @@ body{
     translate: -50% -50%;
     z-index: 5;
     text-align: center;
-    font-size: 48pt;
     font-weight: 900;
     justify-content: center;
     align-items: center;
@@ -301,7 +299,6 @@ body{
 }
 
 #tag-line{
-    font-size: 42pt;
     text-align: right;
     opacity: 0;
     animation: 1s fade-in 1.5s ease-in forwards;
@@ -516,6 +513,15 @@ body{
 This is for small screens
 */
 @media(max-width: 1127px){
+    .navbar-main{
+        grid-template-columns: 1fr;
+    }
+    .splash-borders{
+        font-size: 28pt;
+    }
+    #tag-line{
+        font-size: 28pt;
+    }
     #flex-button{
         align-content: center;
         width: 90%;
@@ -591,6 +597,15 @@ This is for small screens
 This is for desktops
 */
 @media(min-width: 1127px){
+    .navbar-main{
+        grid-template-columns: 1fr 1fr;
+    }
+    .splash-borders{
+        font-size: 52pt;
+    }
+    #tag-line{
+        font-size: 40pt;
+    }
     .flex-links{
         position: absolute;
         top: 150px;
