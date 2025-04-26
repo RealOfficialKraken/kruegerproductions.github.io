@@ -128,7 +128,15 @@
             background-image: linear-gradient(to right, rgb(12, 12, 12), rgb(31, 31, 31));
             border-radius: 10px;
             color: white;
-            font-size: 18pt;
+            font-size: 12pt;
+        }
+
+        .card-1{
+            background-image: url('OG-HM1.png');
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 400px;
         }
         
 }
@@ -193,11 +201,16 @@
         background-image: linear-gradient(to right, rgb(12, 12, 12), rgb(31, 31, 31));
         border-radius: 10px;
         color: white;
-        font-size: 18pt;
+        font-size: 12pt;
     }
     .card-1 {
         grid-column: span 2 / span 2;
         grid-row: span 2 / span 2;
+        background-image: url('OG-HM1.png');
+        background-size: 100%;
+        background-position: bottom;
+        height: 400px;
+        background-repeat: no-repeat;
     }
     
     .card-2 {
