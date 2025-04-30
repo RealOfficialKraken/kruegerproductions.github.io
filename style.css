@@ -28,6 +28,7 @@
 
 html{
     overflow-y: hidden;
+    padding: 0;
 }
 
 html, body{
@@ -248,8 +249,8 @@ body{
 }
 
 .large-circle-1{
-    width: 700px;
-    height: 700px;
+    width: 70%;
+    height: 70%;
     border-radius: 50%;
     background-color: var(--particle-color-6);
     position: absolute;
@@ -259,8 +260,8 @@ body{
 }
 
 .large-circle-2{
-    width: 700px;
-    height: 700px;
+    width: 70%;
+    height: 70%;
     border-radius: 50%;
     background-color: var(--particle-color-2);
     position: absolute;
@@ -270,8 +271,8 @@ body{
 }
 
 .large-circle-3{
-    width: 700px;
-    height: 700px;
+    width: 70%;
+    height: 70%;
     border-radius: 50%;
     background-color: red;
     position: absolute;
@@ -281,8 +282,8 @@ body{
 }
 
 .large-circle-4{
-    width: 700px;
-    height: 700px;
+    width: 70%;
+    height: 70%;
     border-radius: 50%;
     background-color: purple;
     position: absolute;
@@ -537,13 +538,13 @@ This is for small screens
     }
     #flex-button{
         align-content: center;
+        height: 100%;
         width: 90%;
-        height: 400px;
         margin: 20px auto;
     }
     .flex-links{
         flex-direction: column;
-        height: 50%;
+        max-height: 70%;
     }
     .pfp{
         display: flex;
