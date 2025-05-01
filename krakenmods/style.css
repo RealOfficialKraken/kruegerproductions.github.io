@@ -211,7 +211,7 @@
         grid-row: span 2 / span 2;
         background-image: url('OG-HM1.png');
         background-size: 100%;
-        background-position: bottom;
+        background-position: center;
         height: 400px;
         background-repeat: no-repeat;
     }
