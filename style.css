@@ -210,8 +210,8 @@ body{
 }
 
 #particle{
-    -webkit-backdrop-filter: blur(0.2em);
-    filter: blur(0.2em);
+    -webkit-backdrop-filter: blur(24.0em);
+    filter: blur(24.0em);
     z-index: 3;
 }
 
@@ -307,6 +307,7 @@ body{
     justify-content: center;
     align-items: center;
     color: transparent;
+    opacity: 0;
     animation: 1s fade-in ease-in forwards;
     background-image: linear-gradient(to right, rgb(224, 100, 255), rgb(0, 255, 213));
     background-clip: text;
@@ -339,14 +340,14 @@ body{
 }
 
 #small-circle{
-    -webkit-backdrop-filter: blur(0.1em);
-    filter: blur(0.1em);
+    -webkit-backdrop-filter: blur(12.0em);
+    filter: blur(12.0em);
     z-index: 2;
 }
 
 #large-circle{
-    -webkit-backdrop-filter: blur(0.4em);
-    filter: blur(0.4em);
+    -webkit-backdrop-filter: blur(64.0em);
+    filter: blur(64.0em);
     z-index: 1;
 }
 
@@ -545,7 +546,6 @@ This is for small screens
     .flex-links{
         flex-direction: column;
         max-height: 700px;
-        border: 2px solid red;
     }
     .pfp{
         display: flex;
