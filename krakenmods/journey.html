@@ -6,14 +6,82 @@
     <link rel="stylesheet" href="style.css">
     <title>KrakenMODS | Journey</title>
     <style>
-        .journey-body1{
-            display: flex;
-            width: 97.5vw;
-            height: 100vh;
-            border: 2px solid red;
+        @media(min-width: 1127px){ /*big screens*/
+            .journey-body1{
+                display: grid;
+                position: relative;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 100px;
+                top: -10px;
+                width: 97.5vw;
+                height: 100%;
+                color: white;
+            }
+            #journey-link{
+                background-color: rgb(51, 0, 66);
+                border-radius: 6px;
+                width: 100%;
+                padding: 5px 0;
+                text-decoration: none;
+                color: rgb(200, 118, 255);
+                transition: 120ms ease-in-out background-color;
+            }
+            #journey-link:hover{
+                background-color: rgb(53, 0, 138);
+            }
+            .journey-header{
+                font-size: 48pt;
+            }
+            .journey-sidebar{
+                grid-row: span 2 / span 2;
+                border-right: 2px solid rgb(81, 81, 81);
+                display: flex;
+                justify-content: flex-start;
+                background-color: rgb(19, 0, 21);
+                text-align: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 5px;
+                padding-top: 10px;
+                width: 310px;
+                height: 650vh;
+            }
+            .sidebar-links{
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                gap: 5px;
+                width: 300px;
+            }
+            .journey-content{
+                grid-column: span 2 / span 2;
+                grid-row: span 2 / span 2;
+                display: flex;
+                flex-direction: column;
+            }
         }
-        .journey-header{
-            
+        @media(max-width: 1127px){ /*small screens*/
+            .journey-body1{
+                display: flex;
+                position: relative;
+                gap: 100px;
+                top: -10px;
+                margin: 0 auto;
+                width: 60.5vw;
+                height: 100%;
+                color: white;
+                text-align: center;
+                justify-content: center;
+                align-self: center;
+                flex-direction: row;
+            }
+            .journey-sidebar{
+                display: none;
+            }
+            .journey-header{
+                font-size: 32pt;
+            }
         }
     </style>
 </head>
@@ -66,5 +134,181 @@
 <body style="position: absolute;">
     <br><br><br>
     <div class="journey-body1">
+        <div class="journey-sidebar">
+            <div class="sidebar-links">
+                <a id="journey-link" href="#jumpto-first">Intro to Hieroglyphics </a>
+                <a id="journey-link" href="#jumpto-second">Starting HeroMode+</a>
+                <a id="journey-link" href="#">Link</a>
+                <a id="journey-link" href="#">Link</a>
+            </div>
+        </div>
+        <div class="journey-content">
+            <h2 id="jumpto-first" class="journey-header">
+                Intro
+                <br>
+            </h2>
+            <hr>
+            <br>
+            <p>
+                <strong style="color: cyan;">Jak II</strong> is set in a dystopian world 400 years in the future from the first game.
+                The city is full of pedestrians and your occasional 1 or 2 Krimzon Guard on patrol at all times. Pedestrians have a vehicle zoomer they use as transportation, and the Krimzon Guard have their own to patrol.
+            </p>
+            <p style="font-size: 16pt; text-align: center;">The starting objective: Instead of spawning pedestrians and ped-vehicles, spawn Krimzon Guards and Krimzon Vehicles instead.</p>
+            <p style="font-size: 8pt;">
+                Video date: 5/28/23
+            </p>
+            <video width="100%" height="440" controls>
+                <source src="Videos/HMplus-1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video> 
+              <br>
+              <p>
+                Needless to say, my first attempt didn't work. Only some of the guards will pay attention when I alert them, and others require hitting them individually before they attacked me.
+              </p>
+              <p>
+                The code I edited was the right idea, but the wrong place to execute. I didn't know how the language worked, so I just kept switching things around to get a feel.
+              </p>
+              <p style="font-size: 16pt;">
+                Then, after 2 whole days of poking around, I finally realized how the system actually worked.
+              </p>
+              <p>
+                The game had a process called "traffic-manager", which spawns once when Jak is inside of the city. The traffic-manager will calculate the spawnpoints in real time (usually off screen). Then, an entity of any kind can spawn at the position it made up, including vehicles. It will do this <strong>at all times, several times a second</strong>.
+              </p>
+              <center>
+                <p style="color: orange;">
+                    I knew exactly where to edit the values now: <strong>Find the array, and change the spawn values of traffic-manager</strong>
+                  </p>
+              </center>
+              <p style="font-size: 8pt;">
+                Video date: 5/30/23
+            </p>
+              <video width="100%" height="440" controls>
+                <source src="Videos/HMplus-2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video> 
+              <p>
+                Instead of spawning 16 pedestrians and only 1 or 2 guards, it now spawns 0 pedestrians and 20 guards. The vehicles were also affected
+              </p>
+              <p style="font-size: 20pt;">Post Implementation</p>
+              <center>
+                <p>
+                    I'm going to mention this once and only once: <strong>I absolutely love going the extra mile.</strong>
+                  </p>
+              </center>
+              <p style="font-size: 8pt;">
+                Video date: 5/30/23
+            </p>
+              <video width="100%" height="440" controls>
+                <source src="Videos/HMplus-3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video> 
+              <p>
+                Since I spent a couple days figuring out the system of Jak II's traffic, I thought it only necessary to edit the <strong style="color: red">alert-level</strong>
+              </p>
+              <p>
+                It works just as GTA's star system, only there's 4 alert levels:
+              </p>
+              <p style="font-size: 16pt;">
+                Alert 0
+              </p>
+              <p>
+                No alert, 40 guards max, 40 hellcats/guard-bikes. They don't chase, and instead they patrol, acting like landmines for you to accidentally step on.
+              </p>
+              <p style="font-size: 16pt;">
+                Alert 1
+              </p>
+              <p>
+                Light alert, 8 guards max, 0 hellcats/guard-bikes (except for the ones already spawned from alert 0)
+              </p>
+              <p style="font-size: 16pt;">
+                Alert 2
+              </p>
+              <p>
+                Medium alert, 12 guards max, 4 are rifleman, 3 hellcats/guard-bikes
+              </p>
+              <p style="font-size: 16pt;">
+                Alert 3
+              </p>
+              <p>
+                Max alert, 40 guards max, all are rifleman, 40 hellcats/guard-bikes. The game will throw everything it can at you.
+              </p>
+              <br>
+              <br>
+              <h2 id="jumpto-second" style="font-size: 32pt;">
+                Starting HeroMode+
+              </h2>
+              <hr>
+              <br>
+              <p>
+                Initially, I was just going to leave it at that state. Change the guards, but keep the game vanilla.
+              </p>
+              <p>It didn't last long...</p>
+              <p>
+                I didn't have a steady idea of what the mod was going to be, but I knew it had to <strong style="color: orange;">push the PC hardware to it's absolute limit, just as Naughty Dog did with the PS2</strong>. I started looking around different files, trying to see what attributes I can set to maximum. It wasn't long before I found one area in particular, that let me edit the turret firing speed in one of the sewer missions.
+              </p>
+              <p style="font-size: 8pt;">
+                Video date: 5/31/23
+            </p>
+              <video width="100%" height="440" controls>
+                <source src="Videos/HMplus-4.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video> 
+              <p>When messing around with the code, I managed to accidentally edit it's turret firing <strong>amount</strong>.</p>
+              <p>I ended up keeping it in to raise the range to dodge from this turret.</p>
+              <br>
+              <p>I now had a choice: keep pushing everything to the max, or adjust the values to make the level actually possible in retail-mode</p>
+              <p style="font-size: 16pt;">
+                This was exactly where I decided to push the values <strong>to the best possible limit</strong>.
+            </p>
+            <p style="color: green;">
+                HeroMode+ was born.
+            </p>
+            <br>
+            <hr>
+            <br>
+              <p>
+                Once I decided what I was going for, I started looking over all 52 of the missions in Jak II, to make them as wacky as possible. This ended up making the game <strong>very difficult</strong>, and soon the game turned into a <strong style="color: orange;">challenge-mod</strong>.
+              </p>
+              <p>
+                Over the next <strong style="color: orange;">5 months</strong>, I worked hard on bringing a fresh new feel to Jak II, as if you're playing for the first time again. While on the other hand, making the game as hard as possible with the wacky components. The odds were stacked heavily against the player.
+              </p>
+              <p style="font-size: 16pt;">
+                These odds bothered me, I want the game to be unfair, but I also want the player <strong style="color: green;">to have fun!</strong>
+              </p>
+              <p>
+                I then introduced <strong style="color: orange;">Gun Mods</strong>, which were given out in place of the 4 weapons you obtain, since you obtain all of the weapons at the start.
+              </p>
+              <p>
+                Afterwards, the game became too easy. The gun mods I introduced were <strong>too powerful!</strong>
+              </p>
+              <p>
+                To fix this, I leveled the playing field again by introducing <strong style="color: red;">Random Modifiers</strong>.
+                These change something very specific in the game, and each of them have a give and a take in their nature.
+              </p>
+              <p>
+                IE: <strong style="color: cyan;">Chanced Trip/Gain 10 Metalheads</strong>
+              </p>
+              <p>
+                Any input you have can trip jak, delaying any further inputs for a couple seconds. But every time this happens, you gain 10 Metalheads as currency.
+              </p>
+              <p style="font-size: 16pt; color: rgb(0, 189, 0);">You can re-roll these modifiers to get a different one out of 7 modifiers.</p>
+              <p style="font-size: 8pt;">
+                Video date: 10/28/23
+            </p>
+              <video width="100%" height="440" controls>
+                <source src="Videos/teaserhm.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video> 
+              <p>
+                It was now time to share to the community what I had accomplished, in this short teaser trailer featuring HeroMode+'s changes.
+              </p>
+              <p>
+                Most of the mod's structure was composed off of lisp components, like a full array of "when"s spanning over 10,000 lines of code.
+              </p>
+              <p style="color: orange; padding-bottom: 100px;">
+                It wasn't long before the release of the mod in 10/28/23
+              </p>
+        </div>
+    </div>
 </body>
 </html>
