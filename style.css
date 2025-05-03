@@ -447,6 +447,20 @@ body{
     background-size: 23%;
 }
 
+.opengoal-logo{
+    width: 100%;
+    height: 100%;
+    background-image: url('images/opengoal-logo.webp');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    transition: 320ms ease-in-out background;
+}
+
+.opengoal-logo:hover{
+    background-size: 90%;
+}
+
 .flex-link-1{
     background-image: url('images/krakenmods-background.png');
     background-size: 200%;
@@ -465,6 +479,15 @@ body{
     transition: 320ms ease-in;
 }
 
+.flex-link-3{
+    background-image: url('images/opengoal-background.png');
+    background-size: 130%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: center;
+    transition: 320ms ease-in;
+}
+
 .flex-link-1:hover{
     background-size: 210%;
 }
@@ -474,7 +497,7 @@ body{
 }
 
 .flex-link-3:hover{
-    background-size: 110%;
+    background-size: 150%;
 }
 
 .about-mkrueger{
