@@ -308,7 +308,7 @@ body{
     align-items: center;
     color: transparent;
     opacity: 0;
-    animation: 1s fade-in ease-in forwards;
+    animation: 1s fade-in 0.5s ease-in forwards;
     background-image: linear-gradient(to right, rgb(224, 100, 255), rgb(0, 255, 213));
     background-clip: text;
 }
@@ -328,6 +328,15 @@ body{
     }
     100%{
         opacity: 1;
+    }
+}
+
+@keyframes fade-in-slight{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 10%;
     }
 }
 
@@ -362,7 +371,6 @@ body{
     backdrop-filter: blur(14rem);
 }
 
-
 .content-header{
     display: grid;
     grid-template-columns: 0.5fr 0.65fr;
@@ -372,15 +380,6 @@ body{
     width: 100%;
     height: 400px;
     position: relative;
-}
-
-
-
-.wakatime-stats{
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-200px, 200px);
 }
 
 .flex-links{
@@ -547,10 +546,7 @@ body{
 
 
 
-/*
-This is for small screens
-*/
-@media(max-width: 1127px){
+@media(max-width: 1127px){ /*This is for small screens*/
     .navbar-main{
         grid-template-columns: 1fr;
     }
@@ -607,14 +603,17 @@ This is for small screens
     }
 
     .content-overlay{
-        display: flex;
-        width: 100%;
-        height: 70%;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 7px;
-        z-index: 6;
+        width: 90%;
+        height: 800px;
+        position: absolute;
+        left: 0;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+        transition: 1.5s ease-in;
+        opacity: 0;
     }
     .overlay-1, .overlay-2, .overlay-3, .overlay-4, .overlay-5 {
         width: 90%;
@@ -631,10 +630,7 @@ This is for small screens
     }
 }
 
-/*
-This is for desktops
-*/
-@media(min-width: 1127px){
+@media(min-width: 1127px){/*This is for Desktops*/
     .navbar-main{
         grid-template-columns: 1fr 1fr;
     }
@@ -661,6 +657,12 @@ This is for desktops
         justify-content: center;
         align-content: center;
         width: 100%;
+    }
+
+    .flex-1{
+        border: 2px solid cyan;
+        width: 99%;
+        height: 100%;
     }
 
     .flex-link-1 { 
@@ -715,7 +717,6 @@ This is for desktops
         width: 90%;
         height: 800px;
         position: absolute;
-        top: 200px;
         left: 0;
         z-index: 5;
         display: grid;
