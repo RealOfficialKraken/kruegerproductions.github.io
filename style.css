@@ -298,7 +298,7 @@ body{
     width: 70%;
     height: 500px;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     translate: -50% -50%;
     z-index: 5;
@@ -753,7 +753,7 @@ body{
         font-size: 52pt;
     }
     #tag-line{
-        font-size: 40pt;
+        font-size: 30pt;
     }
     .flex-links{
         position: absolute;
