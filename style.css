@@ -737,6 +737,11 @@ body{
         text-align: center;
         font-size: 11pt;
     }
+    .header-hack{
+        width: 100%;
+        height: 300vh;
+        padding-top: 150px;
+    }
 }
 
 @media(min-width: 1127px){/*This is for Desktops*/
