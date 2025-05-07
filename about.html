@@ -10,19 +10,7 @@
             overflow-y: hidden;
             overflow-x: hidden;
         }
-        .flex-content{
-            position: absolute;
-            top: 100px;
-            border: 2px solid cyan;
-            max-width: 900px;
-            width: 85vw;
-            height: 500px;
-            align-self: center;
-            background-image: linear-gradient(to bottom, black, black);
-            border-radius: 10px;
-            padding: 20px;
-            overflow-x: auto;
-        }
+        
         .wakatime-stats{
             position: absolute;
             top: 0;
@@ -75,9 +63,17 @@
             <div class="large-circle-3" id="large-circle"></div>
             <div class="large-circle-4" id="large-circle"></div>
         </div>
-        <div class="splash-glass" style="height: 100%;"></div>
+        <div class="splash-glass" style="height: 100%;">
+            <div class="splash-glass-after2"></div>
+        </div>
         <div class="splash-borders"></div>
         <div class="content-overlay" style="position: absolute; opacity: 1; z-index: 5;">
+            <div class="animated-text-block" id="white-fuzz" style="color: white; gap: 50px;">
+                <h3 style="font-size: 20pt;">Matt Krueger</h3>
+                <p>
+                    Welcome to my website, built from scratch! I also built <strong style="color: rgb(255, 91, 255)">KrakenMODS</strong>, and several other websites for various businesses.
+                </p>
+            </div>
         <div class="flex-content">
             <div class="scrollable">
                 <svg class="wakatime-stats">
@@ -91,13 +87,19 @@
                 </svg>
             </div>
         </div>
+        <div class="content-lower" id="white-fuzz">
+            <h3>I use Windows for user design reference, and Arch-Linux for compilation.</h3>
+            <p>
+                I love to create, destroy, and experiment. 
+            </p>
+        </div>
         </div>
     </div>
 </body>
 </html>
 
 
-<!--
+<!-- THIS IS OLD CODE, ROUGH DRAFT
 <div class="overlay-1" id="overlay-card">
                 <h1>
                     Tracking Code since 4/23/2024

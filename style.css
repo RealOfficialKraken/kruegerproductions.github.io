@@ -371,6 +371,48 @@ body{
     backdrop-filter: blur(14rem);
 }
 
+.splash-glass-after{
+    content: '';
+    top: -52px;
+    left: 50%;
+    translate: -50% 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-width: 800px;
+    padding: 100px;
+    background-image: url('/images/Fantasy-Lake2.png');
+    background-position: center;
+    align-content: center;
+    background-size: 200%;
+    object-fit: cover;
+    z-index: 88;
+    background-repeat: no-repeat;
+    opacity: 0%;
+    animation: 0.7s fade-in-slight ease-in forwards;
+}
+
+.splash-glass-after2{
+    content: '';
+    top: -52px;
+    left: 50%;
+    translate: -50% 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-width: 800px;
+    padding: 100px;
+    background-image: url('/images/Fantasy-Japanese-Street.png');
+    background-position: right;
+    align-content: center;
+    background-size: 200%;
+    object-fit: cover;
+    z-index: 88;
+    background-repeat: no-repeat;
+    opacity: 0%;
+    animation: 0.7s fade-in-slight ease-in forwards;
+}
+
 .content-header{
     display: grid;
     grid-template-columns: 0.5fr 0.65fr;
@@ -535,7 +577,35 @@ body{
     text-align: center;
 }
 
+.animated-text-block::after{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 218, 218);
+    border-radius: 40px;
+    padding: 20px;
+    z-index: -1;
+    opacity: 0.1;
+    -webkit-backdrop-filter: blur(14rem);
+    backdrop-filter: blur(14rem);
+    filter: blur(1rem);
+}
 
+.content-lower::after{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 218, 218);
+    border-radius: 40px;
+    padding: 20px;
+    z-index: -1;
+    opacity: 0.1;
+    -webkit-backdrop-filter: blur(14rem);
+    backdrop-filter: blur(14rem);
+    filter: blur(1rem);
+}
 
 
 
@@ -627,6 +697,42 @@ body{
         text-align: center;
         border-radius: 20px;
         color: white;
+    }
+    .flex-content{
+        position: absolute;
+        top: 400px;
+        border: 2px solid rgb(229, 142, 255);
+        min-width: 200px;
+        width: 90%;
+        height: 300px;
+        align-self: center;
+        background-image: linear-gradient(to bottom, black, black);
+        border-radius: 10px;
+        padding: 20px;
+        overflow-x: auto;
+    }
+    .animated-text-block{
+        width: 90%;
+        min-width: 200px;
+        height: 200px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 100px;
+    }
+    .content-lower{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 25%;
+        position: absolute;
+        top: 800px;
+        left: 0;
+        color: white;
+        text-align: center;
+        font-size: 11pt;
     }
 }
 
@@ -779,5 +885,39 @@ body{
         grid-column: span 2 / span 2;
         grid-column-start: 3;
         grid-row-start: 1;
+    }
+    .flex-content{
+        position: absolute;
+        top: 150px;
+        border: 2px solid rgb(229, 142, 255);
+        max-width: 900px;
+        width: 90%;
+        height: 300px;
+        align-self: center;
+        background-image: linear-gradient(to bottom, black, black);
+        border-radius: 10px;
+        padding: 20px;
+        overflow-x: auto;
+    }
+    .animated-text-block{
+        width: 90%;
+        height: 100px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 100px;
+        text-align: center;
+    }
+    .content-lower{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 25%;
+        position: absolute;
+        top: 700px;
+        left: 0;
+        color: white;
     }
 }
