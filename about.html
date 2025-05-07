@@ -6,8 +6,26 @@
     <title>Krueger Productions | About</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        html, body{
-            overflow-x: hidden;
+        body{
+            width: 100vw;
+            margin-bottom: 0;
+        }
+
+        @media(max-width: 1127px){ /*This is for small screens*/
+            html{
+                height: 160vh
+            }
+            body{
+                height: 100%;
+            }
+        }
+        @media(min-width: 1127px){/*This is for Desktops*/
+            html{
+                height: 125vh
+            }
+            body{
+                height: 100%;
+            }
         }
         
         .wakatime-stats{
@@ -150,7 +168,6 @@
         </div>
     </div>
 </body>
-<div class="header-hack" style="width: 100%; height: 260vh;"></div>
 <p style="text-align: center; position: absolute; top: 1100px;">
     To see more of my own content, check out my <a href="index.html">Top Projects</a>
 </p>

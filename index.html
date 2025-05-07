@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krueger Productions | Home</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            width: 100vw;
+            margin-bottom: 0;
+        }
+
+        @media(max-width: 1127px){ /*This is for small screens*/
+            html{
+                height: 290vh
+            }
+            body{
+                height: 100%;
+            }
+        }
+        @media(min-width: 1127px){/*This is for Desktops*/
+            html{
+                height: 200vh
+            }
+            body{
+                height: 100%;
+            }
+        }
+    </style>
 </head>
     <nav class="navbar-main">
         <div class="navbar-left-inner">
@@ -62,7 +85,6 @@
                 <a class="flex-link-3" id="flex-button"href="https://opengoal.dev/" target="_blank">
                     <div class="opengoal-logo"></div>
                 </a>
-                <div class="header-hack"></div>
             </div>
         </div>
     </body>
