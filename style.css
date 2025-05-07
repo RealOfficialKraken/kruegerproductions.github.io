@@ -623,7 +623,7 @@ body{
         font-size: 28pt;
     }
     #tag-line{
-        font-size: 16pt;
+        font-size: 28pt;
     }
     #flex-button{
         align-content: center;
@@ -634,7 +634,7 @@ body{
     .flex-links{
         flex-direction: column;
         max-height: 700px;
-        min-height: 400px;
+        min-height: 300px;
     }
     .pfp{
         display: flex;
@@ -753,7 +753,7 @@ body{
         font-size: 52pt;
     }
     #tag-line{
-        font-size: 30pt;
+        font-size: 40pt;
     }
     .flex-links{
         position: absolute;
