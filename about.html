@@ -18,7 +18,6 @@
         }
         .scrollable{
             display: flex;
-            align-items: center;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: flex-start;
@@ -29,7 +28,48 @@
             width: 305%;
             scroll-snap-type: x mandatory;
         }
-        
+        .header-hack{
+            width: 100%;
+            height: 130vh;
+            border: 2px solid red;
+            padding-top: 150px;
+        }
+        #content-stat{
+            width: 100%;
+            max-width: 800px;
+            min-width: 600px;
+            height: 99%;
+            background-color: rgb(45, 37, 57);
+            border-radius: 5px;
+            border: 1px solid white;
+            font-family: 'Roboto Mono';
+        }
+        #primary-text{
+            position: relative; 
+            top: 20px; 
+            left: 30px; 
+            color: cyan; 
+            font-weight: 700;
+        }
+        #primary-ptext{
+            position: relative; 
+            top: 40px; 
+            left: 30px; 
+            color: rgb(255, 0, 208); 
+            font-weight: 600;
+        }
+        #secondary-ptext{
+            color: cyan;
+        }
+        .gc-tag{
+            color:rgb(255, 227, 69);
+        }
+        .gc-tag::after{
+            content: 'Season 13 Grand Champion';
+            position: absolute;
+            left: 0;
+            filter: blur(0.3rem);
+        }
     </style>
 </head>
 <nav class="navbar-main">
@@ -76,14 +116,47 @@
         <div class="flex-content">
             <div class="scrollable">
                 <svg class="wakatime-stats">
-                    <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=TheMattBookPro&theme=synthwave&size_weight=0.5&count_weight=0.5&title_color=36F9F6&langs_count=10" alt="My GitHub Time Stats" />
+                    <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=TheMattBookPro&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&theme=synthwave&size_weight=0.5&count_weight=0.5&title_color=36F9F6&langs_count=10" alt="My GitHub Time Stats" />
                 </svg>
-                <svg class="wakatime-stats">
-                    <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=TheMattBookPro&theme=synthwave&size_weight=0.5&count_weight=0.5&title_color=36F9F6&langs_count=10" alt="My GitHub Time Stats" />
-                </svg>
-                <svg class="wakatime-stats">
-                    <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=TheMattBookPro&theme=synthwave&size_weight=0.5&count_weight=0.5&title_color=36F9F6&langs_count=10" alt="My GitHub Time Stats" />
-                </svg>
+                <div class="content-stat-1" id="content-stat">
+                    <h2 id="primary-text">
+                        Skillsets
+                    </h2>
+                    <p id="primary-ptext">
+                        Microsoft Windows <strong style="color: cyan;">- 10+ Years</strong>
+                        <br>
+                        Arch Linux <strong style="color: cyan;">- 4 Months</strong>
+                        <br>
+                        Mac OS X <strong style="color: cyan;">- 10+ Years</strong>
+                        <br>
+                        Customer Service <strong style="color: cyan;">- 7 Years</strong>
+                        <br>
+                        IT Support <strong style="color: cyan;">- 3 Years</strong>
+                        <br>
+                        Current Projects Maintained: <strong style="color: cyan;">6</strong>
+                    </p>
+                </div>
+                <div class="content-stat-2" id="content-stat">
+                    <h2 id="primary-text">
+                        Other Skillsets
+                    </h2>
+                    <p id="primary-ptext">
+                        Unity Engine <strong style="color: cyan;">- 2 Years</strong>
+                        <br>
+                        Vegas Pro 12 <strong style="color: cyan;">- 10+ Years</strong>
+                        <br>
+                        CAD User Perspective (Level Design) <strong style="color: cyan;">- 9 Years</strong>
+                        <br>
+                        Microsoft Excel <strong style="color: cyan;">- 14 Months</strong>
+                        <br>
+                        Adobe Photoshop CS6-2025 <strong style="color: cyan;">- 10+ Years</strong>
+                        <br>
+                        FL Studio <strong style="color: cyan;">- 6 Years</strong>
+                        <br>
+                        <strong class="gc-tag">Season 13 Grand Champion</strong> in Rocket League
+                        <br>
+                    </p>
+                </div>
             </div>
         </div>
         <div class="content-lower" id="white-fuzz">
@@ -92,14 +165,14 @@
             <p>
                 I love to create, destroy, and experiment. 
             </p>
-            <br>
-            <p>
-                To see more of my own content, check out my <a href="index.html">Top Projects</a>
-            </p>
         </div>
         </div>
     </div>
 </body>
+<div class="header-hack"></div>
+<p style="text-align: center; position: absolute; top: 1100px;">
+    To see more of my own content, check out my <a href="index.html">Top Projects</a>
+</p>
 </html>
 
 
