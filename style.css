@@ -701,6 +701,7 @@ body{
         position: absolute;
         display: flex;
         top: 400px;
+        left: -10px;
         border: 2px solid rgb(229, 142, 255);
         min-width: 200px;
         width: 70%;
@@ -711,6 +712,7 @@ body{
         border-radius: 10px;
         padding: 60px;
         overflow-x: auto;
+        overflow-y: hidden;
     }
     .animated-text-block{
         width: 90%;
