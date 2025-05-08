@@ -585,7 +585,7 @@ body{
     border-radius: 40px;
     padding: 20px;
     z-index: -1;
-    opacity: 0.1;
+    opacity: 0.175;
     -webkit-backdrop-filter: blur(14rem);
     backdrop-filter: blur(14rem);
     filter: blur(1rem);
@@ -600,7 +600,7 @@ body{
     border-radius: 40px;
     padding: 20px;
     z-index: -1;
-    opacity: 0.1;
+    opacity: 0.175;
     -webkit-backdrop-filter: blur(14rem);
     backdrop-filter: blur(14rem);
     filter: blur(1rem);
