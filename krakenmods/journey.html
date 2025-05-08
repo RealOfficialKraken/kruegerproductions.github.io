@@ -17,6 +17,7 @@
                 width: 97.5vw;
                 height: 100%;
                 color: white;
+                margin-left: 400px;
             }
             #journey-link{
                 background-color: rgb(51, 0, 66);
@@ -38,7 +39,7 @@
                 color: rgb(200, 118, 255);
                 transition: 120ms ease-in-out background-color;
             }
-            #journey-link:hover{
+            #journey-link:hover, #journey-link-sub:hover{
                 background-color: rgb(53, 0, 138);
             }
             .journey-header{
@@ -56,7 +57,9 @@
                 gap: 5px;
                 padding-top: 10px;
                 width: 310px;
-                height: 650vh;
+                height: 100%;
+                position: fixed;
+                top: 50px;
             }
             .sidebar-links{
                 display: flex;
@@ -144,15 +147,15 @@
 </nav>
 <body style="position: absolute;">
     <br><br><br>
+    <div class="journey-sidebar">
+      <div class="sidebar-links">
+          <a id="journey-link" href="#jumpto-first">Intro</a>
+          <a id="journey-link" href="#jumpto-second">Starting HeroMode+</a>
+          <a id="journey-link-sub" href="#top-issues">Top Issues</a>
+          <a id="journey-link" href="#roguelike-jak2">Developing my next mod</a>
+      </div>
+  </div>
     <div class="journey-body1">
-        <div class="journey-sidebar">
-            <div class="sidebar-links">
-                <a id="journey-link" href="#jumpto-first">Intro</a>
-                <a id="journey-link" href="#jumpto-second">Starting HeroMode+</a>
-                <a id="journey-link-sub" href="#">Link</a>
-                <a id="journey-link" href="#">Link</a>
-            </div>
-        </div>
         <div class="journey-content">
             <h2 id="jumpto-first" class="journey-header">
                 Intro
@@ -316,9 +319,45 @@
               <p>
                 Most of the mod's structure was composed off of lisp components, like a full array of "when"s spanning over 10,000 lines of code.
               </p>
-              <p style="color: orange; padding-bottom: 100px;">
+              <p style="color: orange;">
                 It wasn't long before the release of the mod in 10/28/23
               </p>
+              <img src="ModImage.png" style="width: 70%; height: 50%">
+              <br>
+              <hr>
+              <h2 id="top-issues">
+                My Top Bugs/Issues with HM+
+              </h2>
+              <ul>
+                <li>
+                  TP-FB was the hardest to implement, as it involved quickly hopping out of a save to play the final boss mission. Then, your items would be re-introduced back. I also had to make it impossible for the player to save their game during the fight.
+                </li>
+                <li>
+                  Some Gun Mods will fire enemy projectiles out of jak's weapon. The issue rose when Jak would constantly take damage from his own shots. This required the entire projectile to be cloned, and set to it's own parameters, so it didn't affect other shots of the same type.
+                </li>
+              </ul>
+              <br>
+              <hr>
+              <br>
+              <h2 id="roguelike-jak2">
+                Developing my next mod
+              </h2>
+              <br>
+              <p>
+                After Hero-Mode+, I knew I was still on the frontier of modding in <strong style="color: orange;">OpenGOAL</strong>. I wanted to do some sort of checkpoint randomizer, just like the first game had.
+              </p>
+              <p>
+                The only problem was that <strong style="color: cyan;">Jak II</strong> has a very linear-style mission progression. How does the game know which mission you completed in the past?
+              </p>
+              <p>
+                With <strong style="color: yellow;">Jak 1</strong>, the game is structured as a collect-a-thon, which means that randomized checkpoints were much more fun and practical. <strong style="color: cyan;">Jak II</strong> was going to take a little more than just a simple change.
+              </p>
+              <!--This is the end of the page-->
+              <div class="footer"><hr></div>
+              <br>
+              <br>
+              <br>
+              <br>
         </div>
     </div>
 </body>

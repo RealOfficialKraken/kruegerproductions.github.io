@@ -582,3 +582,8 @@ img{
 #skyblue{
     color: rgb(0, 183, 255);
 }
+
+.footer{
+    height: 400px;
+    width: 100vw;
+}
