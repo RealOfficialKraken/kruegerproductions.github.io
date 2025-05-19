@@ -6,12 +6,37 @@
     <title>Top Shelf Template</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
+    <style>
+        @media(max-width: 827px){ /*Small Screens*/
+            .splash h1{
+                font-size: 40pt;
+            }
+            .splash a{
+                font-size: 12pt; 
+                font-weight: 600;
+            }
+            .contact-wrapper{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @media(min-width: 827px){ /*Big Screens*/
+            .splash h1{
+                font-size: 72pt;
+            }
+            .splash a{
+                font-size: 32pt; 
+                font-weight: 600;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="splash">
             <h1>Top Shelf</h1>
-            <a href="#location-section" id="address-form" style="font-size: 32pt; font-weight: 600;"></a>
+            <a href="#location-section" id="address-form"></a>
         </div>
         <div class="splash-gradient"></div>
         <div class="splash-image"></div>
@@ -20,7 +45,7 @@
             <div class="folder-right"></div>
         </div>
     </header>
-    <h1 style="position: relative; text-align: center; opacity: 0; animation: slide-up 320ms 1.5s ease-out forwards;">
+    <h1 style="position: relative; text-align: center; opacity: 0; animation: slide-up 320ms 1.5s ease-out forwards; z-index: 3;">
         Top Glassware
     </h1>
     <section class="scroller" id="glass">

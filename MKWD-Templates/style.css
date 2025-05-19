@@ -55,6 +55,8 @@ header{
     background-repeat: no-repeat;
     background-size: 150%;
     background-position: center;
+    justify-self: center;
+    min-width: 600px;
 }
 
 .folder-edge{
@@ -63,7 +65,7 @@ header{
     display: flex;
     position: relative;
     z-index: 2;
-    gap: 400px;
+    gap: 100px;
     justify-content: space-between;
     top: 40px;
 }
@@ -112,7 +114,6 @@ header{
 .splash h1{
     color: var(--text-secondary-color);
     position: relative;
-    font-size: 72pt;
 }
 
 .splash h2{
