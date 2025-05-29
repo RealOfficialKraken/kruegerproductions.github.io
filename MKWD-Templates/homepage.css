@@ -58,7 +58,7 @@ nav{
 
 cover{
     width: 100%;
-    height: 1000px;
+    height: 100%;
     background-color: var(--secondary-background);
     position: absolute;
     display: flex;
@@ -191,6 +191,7 @@ cover div .zap-logo::after{
     nav{
         position: fixed;
         background-color: var(--primary-background);
+        border-radius: 20px;
     }
     
     nav .nav-wrapper{
@@ -225,6 +226,15 @@ cover div .zap-logo::after{
         background-repeat: no-repeat;
         align-self: center;
         justify-self: center;
+    }
+    #how-it-works{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin-top: 400px;
+    }
+    .hiwa{
+        font-size: 64pt;
     }
 }
 
@@ -293,6 +303,15 @@ cover div .zap-logo::after{
         display: flex;
         animation: fade-in-40 320ms forwards;
     }
+    #how-it-works{
+        margin-top: 200px;
+    }
+    .hiwa{
+        font-size: 24pt;
+    }
+    .splash-2 img{
+        max-width: 200px;
+    }
 }
 
 @keyframes nav-open{
@@ -344,21 +363,24 @@ cover div .zap-logo::after{
     text-shadow: 4px 4px 2px rgb(195, 195, 195);
 }
 .splash-2{
-    height: 50%;
     background-image: linear-gradient(to right, rgb(0, 204, 255), rgb(175, 255, 255));
     animation: slide-right 320ms 5s forwards;
     opacity: 0;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .splash-2 h2{
     text-align: right;
     display: flex;
     color: white;
+    max-width: 400px;
 }
 .splash-2 img{
     border-radius: 10px;
     margin: 10px;
-    height: 95%;
+    max-height: 95%;
 }
 #content-card{
     padding: 50px;
@@ -371,11 +393,10 @@ cover div .zap-logo::after{
 #how-it-works{
     width: 100%;
     position: relative;
-    top: 125px;
+    z-index: -1;
 }
 
 .hiwa{
-    font-size: 64pt;
     text-align: center;
 }
 
