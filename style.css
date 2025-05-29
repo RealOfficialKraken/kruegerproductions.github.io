@@ -432,7 +432,7 @@ body{
 
 #flex-button{
     width: 30%;
-    background-color: rgb(113, 113, 113);
+    background-color: rgb(112, 207, 255);
     border-radius: 10px;
     transition: 320ms ease-out border;
     border: 4px solid rgba(255, 255, 255, 0);
@@ -490,7 +490,7 @@ body{
 .opengoal-logo{
     width: 100%;
     height: 100%;
-    background-image: url('images/opengoal-logo.webp');
+    background-image: url('MKWD-Templates/images/ZAP_Haptics.png');
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
@@ -520,7 +520,6 @@ body{
 }
 
 .flex-link-3{
-    background-image: url('images/opengoal-background.png');
     background-size: 130%;
     background-repeat: no-repeat;
     object-fit: cover;

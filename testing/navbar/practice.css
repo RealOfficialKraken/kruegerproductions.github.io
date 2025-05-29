@@ -1,0 +1,30 @@
+:root{
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+
+}
+
+body{
+    width: 99.8vw;
+    height: 100vh;
+}
+
+nav{
+    height: 50px;
+    border: 2px solid red;
+}
+
+#sidebar-active{
+    display: none;
+}
+
+nav label{
+    margin: 10px;
+}
