@@ -1,466 +1,282 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap');
 
-:root{
-    --primary-text: black;
-    --primary-background: rgb(255, 246, 235);
-    --accent-color: rgb(76, 195, 255);
-    --secondary-background: rgb(150, 150, 150);
-}
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-html{
-    font-family: 'Roboto Mono', 'Poppins', sans-serif;
-    color: var(--primary-text);
-}
-
-body{
-    min-width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-color: var(--primary-background);
-    overflow-y: hidden;
-    animation: overflow-scroll 0.1s 4s forwards;
-}
-
-.body-content{
+.haptiks-body{
     position: relative;
-    z-index: -1;
-    top: 50px;
+        top: 100px;
+        width: 100vw;
+        z-index: -1;
 }
 
-nav{
-    background-color: var(--primary-background);
-}
-
-.nav-wrapper .buttons a{
+.haptiks-body .flex-cont{
     display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.flex-cont .content-card a{
+    background-color: rgb(146, 96, 255);
+    border-radius: 20px;
     text-decoration: none;
-    font-family: Poppins, sans-serif;
-    color: var(--primary-text);
-    align-items: center;
-    height: 50px;
-    padding: 0 10px;
+    color: white;
+    padding: 10px 40px;
+    font-weight: 900;
+    transition: 130ms ease-in;
 }
 
-.nav-wrapper .buttons a:hover{
-    transition: 220ms ease-in background-color;
-    background-color: var(--accent-color);
+.content-card a:hover{
+    background-color: white;
+    color: black;
 }
 
-#sidebar-active{
-    display: none;
-}
-
-
-cover{
-    width: 100%;
-    height: 100%;
-    background-color: var(--secondary-background);
-    position: absolute;
+.let-us{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    animation: fade-out-zap 320ms 4s ease-in-out forwards;
-    z-index: 99;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    text-align: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-cover div{
-    border: 1px solid rgb(115, 0, 255);
-    background-color: rgb(0, 174, 255);
-    width: 0;
-    height: 0;
+.let-us img{
+    background-color: rgb(136, 54, 195);
     border-radius: 50%;
-    animation: circle-in 3s ease-in-out forwards;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+#how-it-works{
     display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+    gap: 50px;
+    flex-direction: column;
+}
+
+#how-it-works h1{
+    text-align: center;
+}
+
+#how-it-works .content-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    color: white;
+    font-family: Poppins;
+    font-weight: 600;
+    gap: 20px;
+}
+
+.giffy{
+    border-radius: 10px;
+}
+
+#why-us{
+    display: flex;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    margin-top: 50px;
+    gap: 50px;
     justify-content: center;
     align-items: center;
 }
 
-cover div .zap-logo::after{
-    content: '';
-    opacity: 0;
-    animation: slide-up 4s 1s forwards;
-    border: none;
-    background-image: url('images/ZAP_Haptics.png');
-    width: 100%;
-    height: 100%;
+#why-us .content-card{
+    background-image: linear-gradient(to right, black, rgb(42, 42, 42));
+    border-radius: 20px;
+    color: white;
+}
+
+.let-us .link{
+    background-image: url('images/browse_activity_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png');
     background-position: center;
+    object-fit: cover;
     background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-    max-width: 70%;
-    max-height: 70%;
+    width: 10px;
+    height: 10px;
 }
 
-@keyframes slide-up{
-    0%{
-        opacity: 0;
-        margin-top: 200px;
-    }
-    25%{
-        opacity: 100%;
-        margin-top: 0;
-    }
-    75%{
-        opacity: 100%;
-        margin-top: 0;
-    }
+.hiw-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, rgb(189, 74, 255), rgb(207, 0, 207));
+    padding: 40px 20px;
+    color: white;
+    font-family: Poppins;
 }
 
-@keyframes circle-in{
-    0%{
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-    }
-    49%{
-        border-radius: 20%;
-    }
-    50%{
-        width: 10000px;
-        height: 10000px;
-        border-radius: 0%;
-    }
+.hiw-flex .content2{
+    max-width: 800px;
+    text-align: center;
 }
 
-@keyframes fade-in{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 100%;
-    }
+#why-us .content-card{
+    padding: 50px;
 }
 
-@keyframes fade-out{
-    0%{
-        opacity: 100%;
-    }
-    100%{
-        opacity: 0;
-    }
+.list1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
 }
 
-@keyframes fade-out-zap{
-    0%{
-        opacity: 100%;
+.list1 div{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.list1 div div{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#number-tag1{
+    background-color: rgb(181, 85, 255);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 14pt;
+    font-family: Poppins;
+}
+
+@media(max-width: 1127px){ /*Mobile View*/
+    .haptiks-body{
     }
-    99%{
+    .flex-cont{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .image-flex{
+        width: 90%;
+        height: 400px;
+        border: 2px solid black;
+    }
+    .flex-cont .content-card{
+        margin: 20px 50px 20px 40px;
+        background-image: linear-gradient(to right, rgb(157, 203, 255), rgb(54, 255, 211));
+        width: 70%;
+        text-align: center;
+        border-radius: 20px;
+        padding: 10px 30px;
+        min-height: 200px;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
     }
-    100%{
-        opacity: 0;
-        display: none;
-        z-index: -999;
+    .hiw-flex .content-card{
+        flex-direction: column;
+        text-align: center;
+        width: 90%;
     }
-}
-
-@keyframes overflow-scroll{
-    0%{
-        overflow-y: hidden;
+    .giffy{
+        max-width: 70%
     }
-    99%{
-        overflow-y: hidden;
+    #why-us{
+        flex-direction: column;
     }
-    100%{
-        overflow-y: scroll;
+    #why-us .content-card{
+        width: 90%;
     }
-}
-
-@keyframes fade-in-40{
-    0%{
-        opacity: 0;
+    #why-us .content-card .content1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 50px;
     }
-    100%{
-        opacity: 40%;
+    #why-us .content-card .content1 img{
+        width: 50px;
+        height: 50px;
     }
-}
-@keyframes fade-out-40{
-    0%{
-        opacity: 40%;
+    #why-us .content-card .content1 h1{
+        color: rgb(175, 109, 255);
+        font-size: 24pt;
+        margin-bottom: 100px;
     }
-    100%{
-        opacity: 0;
+    #why-us .content-card .content2{
+        font-family: Poppins;
+    }
+    .list1{
+        flex-direction: column;
     }
 }
 
 @media(min-width: 1127px){ /*Desktop View*/
-    nav{
-        position: fixed;
-        background-color: var(--primary-background);
-        border-radius: 20px;
+    .haptiks-body{
+        min-height: 100vh;
     }
-    
-    nav .nav-wrapper{
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: row;
-        margin-left: 20px;
-    }
-    
-    .nav-wrapper .open-sidebar{
-        display: none;
-    }
-    
-    .nav-wrapper .close-sidebar{
-        display: none;
-    }
-    
-    .nav-wrapper .buttons{
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        width: 100%;
-        align-self: center;
+    .haptiks-body .flex-cont{
+        width: 90%;
         justify-self: center;
-    }
-    .logo-bar{
-        background-image: url('images/ZAP--Haptics.png');
-        width: 100px;
-        height: 50px;
-        position: relative;
-        top: 17px;
-        object-fit: cover;
-        background-size: 90%;
-        background-repeat: no-repeat;
         align-self: center;
-        justify-self: center;
     }
-    #how-it-works{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        margin-top: 400px;
-    }
-    .hiwa{
-        font-size: 64pt;
-    }
-    .splash-2{
-        max-width: 900px;
-        align-self: flex-end;
-        display: flex;
-    }
-    .gif1{
-        display: inline-block;
-        width: 60%;
-        height: 100%;
-        position: relative;
-        left: 60px;
-        background-image: url('images/top-shelf-gif.gif');
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: center;
+    .flex-cont .content-card{
+        margin: 20px 40px 20px 20px;
+        background-image: linear-gradient(to right, rgb(157, 203, 255), rgb(54, 255, 211));
+        width: 50%;
+        text-align: center;
         border-radius: 20px;
-    }
-}
-
-@media(max-width: 1127px){ /*Mobile View*/
-    nav{
+        padding: 10px 30px;
+        height: 400px;
         display: flex;
-        flex-direction: flex-end;
-        position: fixed;
-        width: 100%;
-    }
-    
-    nav .nav-wrapper{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-    .nav-wrapper .buttons{
-        display: none;
         flex-direction: column;
-        position: absolute;
-        background-color: white;
-        width: 100%;
-        z-index: 8;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
     }
-    .nav-wrapper .buttons a{
-        animation: fade-in 320ms 0.3s forwards;
-        opacity: 0;
-    }
-    .nav-wrapper .open-sidebar{
-        position: relative;
-        padding: 0 20px;
-    }
-    .nav-wrapper .close-sidebar{
-        position: relative;
-        z-index: 9;
-        display: inline-block;
-    }
-    .logo-bar{
-        background-image: url('images/ZAP--Haptics.png');
-        width: 100px;
-        height: 50px;
-        object-fit: cover;
-        background-size: 60%;
-        background-position: center;
-        background-repeat: no-repeat;
-        align-self: center;
-        justify-self: center;
-        padding: 0 20px;
-    }
-    .nav-out{
-        position: fixed;
-        z-index: 7;
-        display: none;
-        background-color: black;
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        transition: 320ms ease-in-out;
-    }
-    #sidebar-active:checked ~ .buttons{
-        display: flex;
-        animation: nav-open 320ms ease-in-out forwards;
-    }
-    #sidebar-active:checked ~ .nav-out{
-        display: flex;
-        animation: fade-in-40 320ms forwards;
-    }
-    #how-it-works{
-        margin-top: 200px;
-    }
-    .hiwa{
-        font-size: 24pt;
-    }
-    .splash-1 h1{
-        font-size: 18pt;
-        min-width: 200px;
-    }
-    .gif1{
-        background-image: url('images/top-shelf-gif.gif');
-        width: 70%;
-        height: 600px;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: center;
-        border-radius: 20px;
-        align-self: center;
-        justify-self: center;
-    }
-    .splash-2 h2{
-        font-size: 12pt;
-        text-align: center;
-    }
-    #content-card{
-        max-width: 600px;
-        justify-self: center;
-        align-self: center;
-    }
-}
-
-@keyframes nav-open{
-    0%{
-        height: 0;
-    }
-    100%{
+    .haptiks-body .image-flex{
+        width: 50%;
+        border: 2px solid black;
         height: 400px;
     }
-}
-
-@keyframes slide-left{
-    0%{
-        opacity: 0;
-        left: 200px;
+    .hiw-flex .content-card{
+        flex-direction: row;
+        max-width: 800px;
     }
-    100%{
-        left: 0;
-        opacity: 100%;
+    #why-us{
+        flex-direction: row;
     }
-}
-
-@keyframes slide-right{
-    0%{
-        opacity: 0;
-        left: -200px;
+    #why-us .content-card{
+        max-width: 800px;
     }
-    100%{
-        left: 0;
-        opacity: 100%;
+    #why-us .content-card .content1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 50px;
     }
-}
-
-.splash-page{
-    width: 100%;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: -1;
-}
-.splash-1{
-    height: 50%;
-    font-size: 18pt;
-    text-align: center;
-    animation: slide-left 320ms 5s forwards;
-    opacity: 0;
-    position: relative;
-    text-shadow: 4px 4px 2px rgb(195, 195, 195);
-}
-.splash-2{
-    background-image: linear-gradient(to right, rgb(0, 204, 255), rgb(175, 255, 255));
-    animation: slide-right 320ms 5s forwards;
-    opacity: 0;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.splash-2 h2{
-    display: flex;
-    color: white;
-    max-width: 700px;
-    margin: 20px;
-}
-.splash-2 div{
-    border-radius: 10px;
-    margin: 10px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-radius: 20px;
-}
-#content-card{
-    padding: 10px;
-    border-radius: 20px;
-    margin-bottom: 70px;
-    display: flex;
-    align-items: center;
-}
-
-#how-it-works{
-    width: 100%;
-    position: relative;
-    z-index: -1;
-}
-
-.hiwa{
-    text-align: center;
-}
-
-.hiwb{
-    background-image: linear-gradient(to right, rgb(255, 116, 255), rgb(121, 43, 255));
-    margin: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    font-size: 16pt;
-    font-weight: 600;
-    color: white;
-    display: flex;
-}
-
-#scrollable{
-    opacity: 0;
-}
-
-#scrollable{
-    animation: slide-right 320ms 5.4s forwards;
+    #why-us .content-card .content1 img{
+        width: 50px;
+        height: 50px;
+    }
+    #why-us .content-card .content1 h1{
+        color: rgb(175, 109, 255);
+        font-size: 24pt;
+        margin-bottom: 100px;
+    }
+    #why-us .content-card .content2{
+        font-family: Poppins;
+    }
+    .list1{
+        flex-direction: column;
+    }
 }
