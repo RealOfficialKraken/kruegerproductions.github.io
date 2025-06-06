@@ -5,6 +5,8 @@
     --primary-background: rgb(255, 246, 235);
     --accent-color: rgb(76, 195, 255);
     --secondary-background: rgb(150, 150, 150);
+    --address-form: '1234 N Address Ave City, State 88888';
+    --email-form: 'yourcontactaddress@example.com';
 }
 
 *{

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Test</title>
+  <style>
+    @property --splash-height {
+      syntax: "<length>";
+      inherits: false;
+      initial-value: 600px; /* Set an initial value */
+    }
+
+    @keyframes shrink-splash {
+      from {
+        --splash-height: 600px;
+      }
+      to {
+        --splash-height: 300px;
+      }
+    }
+
+    .splash-content {
+      width: 100%;
+      height: var(--splash-height);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 50px;
+      position: relative;
+      z-index: 1;
+      animation: shrink-splash 2.2s ease-in-out forwards;
+    }
+
+    /* Add some basic styles to see the div */
+    .splash-content {
+      background-color: lightblue;
+      border: 2px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="splash-content">
+    <div class="left-flap1" id="left-flap"></div>
+    <div class="right-flap1" id="right-flap"></div>
+    <div class="left-flap2" id="left-flap"></div>
+    <div class="right-flap2" id="right-flap"></div>
+    <div class="left-flap3" id="left-flap"></div>
+    <div class="right-flap3" id="right-flap"></div>
+    <div class="splash-screen"></div>
+    <div class="splash-gradient"></div>
+    <h1>Triangulate</h1>
+  </div>
+
+</body>
+</html>
