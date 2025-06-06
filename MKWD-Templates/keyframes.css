@@ -141,6 +141,30 @@
     }
 }
 
+[popover]:popover-open {
+    translate: 0 0;
+}
+
+[popover]{
+    transition: translate 0.7s ease-out, overlay 0.7s ease-out, display 0.7s ease-out allow-discrete;
+    translate: 0 -30rem;
+}
+
+@starting-style{
+    [popover]:popover-open{
+        translate: 0 -30rem;
+    }
+}
+
+@keyframes popup-down{
+    0%{
+        top: -300px;
+    }
+    100%{
+        top: 100px;
+    }
+}
+
 @keyframes slide-upright{
     0%{
         top: 0;
