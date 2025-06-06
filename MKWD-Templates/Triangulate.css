@@ -216,6 +216,14 @@ body{
     flex-direction: column;
 }
 
+.top-hardware{
+    background-color: var(--color-primary);
+}
+
+.top-vapes{
+    background-color: var(--color-secondary);
+}
+
 .top-hardware .hardware-content, .top-vapes .vapes-content{
     width: 70%;
     display: flex;
@@ -243,7 +251,6 @@ body{
     min-height: 200px;
     height: 50%;
     background-color: var(--color-secondary);
-    display: flex;
     padding: 20px;
     z-index: -1;
     inset: 0;
@@ -434,7 +441,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primarys);
     padding-bottom: 100px;
 }
 
