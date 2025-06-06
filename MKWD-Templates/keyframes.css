@@ -156,10 +156,6 @@
     }
 }
 
-#anim-fade{
-    animation: fade-in 320ms ease-in-out forwards;
-}
-
 @keyframes popup-down{
     0%{
         top: -300px;
