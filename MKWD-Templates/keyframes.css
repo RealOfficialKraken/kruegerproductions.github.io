@@ -149,6 +149,7 @@
 [popover]{
     transition: translate 0.7s ease-out, overlay 0.7s ease-out, display 0.7s ease-out allow-discrete;
     translate: 0 -30rem;
+    display: flex;
 }
 /*BEFORE-OPEN STATE*/
 @starting-style{

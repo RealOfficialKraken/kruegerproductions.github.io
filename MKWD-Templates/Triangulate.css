@@ -250,6 +250,7 @@ body{
     margin: 0 auto;
     top: 100px;
     overflow-y: hidden;
+    display: none;
 }
 
 .popup-content .cont{
