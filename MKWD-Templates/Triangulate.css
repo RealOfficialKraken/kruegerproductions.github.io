@@ -257,7 +257,7 @@ body{
     margin: 0 auto;
     top: 100px;
     overflow-y: hidden;
-    display: none;
+    position: absolute;
 }
 
 .popup-content .cont{
