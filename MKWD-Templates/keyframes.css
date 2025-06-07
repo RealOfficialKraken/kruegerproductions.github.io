@@ -140,44 +140,7 @@
         top: 650px;
     }
 }
-/* Default (closed) state */
-[popover] {
-  opacity: 0;
-  transform: translateY(30rem);
-  transition: opacity 660ms ease-out, transform 660ms ease-out;
-  display: flex;
-  z-index: -999;
-}
 
-/* Open state */
-[popover]:popover-open {
-  opacity: 1;
-  transform: translateY(0);
-  display: flex;
-}
-
-/* Open state */
-[popover].\:popover-open {
-  opacity: 1;
-  transform: translateY(0);
-  display: flex;
-}
-
-/* Open state */
-[popover].popover-open {
-  opacity: 1;
-  transform: translateY(0);
-  display: flex;
-}
-
-/* Initial state before transition */
-@starting-style {
-  [popover] {
-    opacity: 0;
-    transform: translateY(30rem);
-    display: flex;
-  }
-}
 
 @keyframes popup-down{
     0%{
