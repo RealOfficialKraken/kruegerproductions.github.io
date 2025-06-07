@@ -225,7 +225,6 @@ body{
 }
 
 .top-hardware .hardware-content, .top-vapes .vapes-content{
-    width: 70%;
     display: flex;
     gap: 50px;
     justify-content: space-evenly;
@@ -235,7 +234,7 @@ body{
 }
 
 #clickable-pop{
-    width: 150px;
+    width: 125px;
     height: 200px;
     position: relative;
     z-index: 99;
@@ -257,7 +256,6 @@ body{
     margin: 0 auto;
     top: 100px;
     overflow-y: hidden;
-    position: absolute;
 }
 
 .popup-content .cont{
@@ -487,6 +485,9 @@ iframe{
     .top-hardware h1, .top-vapes h1{
         font-size: 32pt;
     }
+    .hardware-content{
+        max-width: 70%;
+    }
 }
 
 @media(max-width: 1127px){ /*Mobile View*/
@@ -498,5 +499,8 @@ iframe{
     }
     .popup-content .cont{
         font-size: 12pt;
+    }
+    .hardware-content{
+        width: 86%;
     }
 }
