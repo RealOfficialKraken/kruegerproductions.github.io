@@ -145,6 +145,10 @@
     translate: 0 0;
     display: flex;
 }
+[popover].\:popover-open {
+    translate: 0 0;
+    display: flex;
+}
 /*EXIT STATE*/
 [popover]{
     transition: translate 0.7s ease-out, overlay 0.7s ease-out, display 0.7s ease-out allow-discrete;
@@ -154,6 +158,12 @@
 /*BEFORE-OPEN STATE*/
 @starting-style{
     [popover]:popover-open{
+        translate: 0 -30rem;
+        display: none;
+    }
+}
+@starting-style{
+    [popover].\:popover-open{
         translate: 0 -30rem;
         display: none;
     }
