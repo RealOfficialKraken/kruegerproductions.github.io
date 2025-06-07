@@ -2,56 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animation Test</title>
+  <title>Custom Popover Example</title>
   <style>
-    @property --splash-height {
-      syntax: "<length>";
-      inherits: false;
-      initial-value: 600px; /* Set an initial value */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
     }
 
-    @keyframes shrink-splash {
-      from {
-        --splash-height: 600px;
-      }
-      to {
-        --splash-height: 300px;
-      }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
     }
 
-    .splash-content {
-      width: 100%;
-      height: var(--splash-height);
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap: 50px;
-      position: relative;
-      z-index: 1;
-      animation: shrink-splash 2.2s ease-in-out forwards;
-    }
-
-    /* Add some basic styles to see the div */
-    .splash-content {
-      background-color: lightblue;
-      border: 2px solid #000;
+    .popover {
+      position: absolute;
+      display: none;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 1em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 9999;
+      border-radius: 5px;
+      min-width: 200px;
     }
   </style>
 </head>
 <body>
 
-  <div class="splash-content">
-    <div class="left-flap1" id="left-flap"></div>
-    <div class="right-flap1" id="right-flap"></div>
-    <div class="left-flap2" id="left-flap"></div>
-    <div class="right-flap2" id="right-flap"></div>
-    <div class="left-flap3" id="left-flap"></div>
-    <div class="right-flap3" id="right-flap"></div>
-    <div class="splash-screen"></div>
-    <div class="splash-gradient"></div>
-    <h1>Triangulate</h1>
+  <button id="popoverButton">Toggle Popover</button>
+  <div id="popover" class="popover">
+    <strong>Hi there!</strong> This is a custom popover.
   </div>
+
+  <script>
+    const button = document.getElementById('popoverButton');
+    const popover = document.getElementById('popover');
+
+    button.addEventListener('click', (event) => {
+      const isVisible = popover.style.display === 'block';
+      if (isVisible) {
+        popover.style.display = 'none';
+      } else {
+        // Get button position
+        const rect = button.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + window.scrollY + 8}px`;
+        popover.style.left = `${rect.left + window.scrollX}px`;
+        popover.style.display = 'block';
+      }
+    });
+
+    // Optional: close the popover if you click outside
+    document.addEventListener('click', (event) => {
+      if (!popover.contains(event.target) && event.target !== button) {
+        popover.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>
