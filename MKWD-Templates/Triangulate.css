@@ -3,7 +3,7 @@
 
 :root{
     --color-primary: rgb(239, 255, 239);
-    --color-secondary: rgb(185, 185, 185);
+    --color-secondary: rgb(255, 244, 221);
     --color-accent: red;
     --text-primary: black;
     --text-secondary: white;
@@ -262,6 +262,8 @@ body{
     overflow-x: hidden;
     display: flex;
     z-index: -99;
+    border-radius: 13px;
+    border: 2px solid green;
 }
 
 .popup-content:popover-open{
@@ -486,7 +488,7 @@ iframe{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: rgb(49, 34, 14);
     color: white;
     padding: 50px 50px 100px 50px;
 }
@@ -501,6 +503,36 @@ iframe{
     display: inline-block;
 }
 
+.contact-wrapper div a{
+    color: white;
+}
+
+
+nav{
+    background-color: var(--color-primary);
+    position: absolute;
+    z-index: 999;
+}
+
+.nav-wrapper .buttons a{
+    display: flex;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    color: var(--text-primary);
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
+}
+
+.nav-wrapper .buttons a:hover{
+    transition: 220ms ease-in background-color;
+    background-color: var(--color-accent);
+}
+
+#sidebar-active{
+    display: none;
+}
+
 @media(min-width: 1127px){ /*Desktop View*/
     .splash{
         background-size: 100%;
@@ -510,6 +542,45 @@ iframe{
     }
     .hardware-content{
         max-width: 70%;
+    }
+    nav{
+        position: fixed;
+        background-color: var(--color-primary);
+        border-radius: 20px;
+    }
+    
+    nav .nav-wrapper{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    
+    .nav-wrapper .open-sidebar{
+        display: none;
+    }
+    
+    .nav-wrapper .close-sidebar{
+        display: none;
+    }
+    
+    .nav-wrapper .buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+        align-self: center;
+        justify-self: center;
+    }
+    .logo-bar{
+        width: 300px;
+        height: 50px;
+        position: relative;
+        object-fit: cover;
+        background-size: 90%;
+        background-repeat: no-repeat;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
     }
 }
 
@@ -525,5 +596,69 @@ iframe{
     }
     .hardware-content{
         width: 86%;
+    }
+    nav{
+        display: flex;
+        flex-direction: flex-end;
+        position: fixed;
+        width: 100%;
+        z-index: 99;
+    }
+    
+    nav .nav-wrapper{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .nav-wrapper .buttons{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        z-index: 8;
+        text-align: center;
+    }
+    .nav-wrapper .buttons a{
+        animation: fade-in 320ms 0.3s forwards;
+        opacity: 0;
+    }
+    .nav-wrapper .open-sidebar{
+        position: relative;
+        padding: 0 20px;
+    }
+    .nav-wrapper .close-sidebar{
+        position: relative;
+        z-index: 9;
+        display: inline-block;
+    }
+    .logo-bar{
+        height: 50px;
+        object-fit: cover;
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        align-content: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .nav-out{
+        position: fixed;
+        z-index: 7;
+        display: none;
+        background-color: black;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        transition: 320ms ease-in-out;
+    }
+    #sidebar-active:checked ~ .buttons{
+        display: flex;
+        animation: nav-open 320ms ease-in-out forwards;
+        position: relative;
+    }
+    #sidebar-active:checked ~ .nav-out{
+        display: flex;
+        animation: fade-in-40 320ms forwards;
     }
 }

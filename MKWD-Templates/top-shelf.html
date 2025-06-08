@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
     <style>
+        nav{
+    background-color: var(--primary-color);
+    position: absolute;
+    z-index: 999;
+}
+
+.nav-wrapper .buttons a{
+    display: flex;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    color: var(--text-primary-color);
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
+}
+
+.nav-wrapper .buttons a:hover{
+    transition: 220ms ease-in background-color;
+    background-color: var(--accent-color);
+}
+
+#sidebar-active{
+    display: none;
+}
         @media(max-width: 827px){ /*Small Screens*/
             .splash h1{
                 font-size: 40pt;
@@ -19,6 +43,70 @@
                 display: flex;
                 flex-direction: column;
             }
+            nav{
+        display: flex;
+        flex-direction: flex-end;
+        position: fixed;
+        width: 100%;
+        z-index: 99;
+    }
+    
+    nav .nav-wrapper{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .nav-wrapper .buttons{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        z-index: 8;
+        text-align: center;
+    }
+    .nav-wrapper .buttons a{
+        animation: fade-in 320ms 0.3s forwards;
+        opacity: 0;
+    }
+    .nav-wrapper .open-sidebar{
+        position: relative;
+        padding: 0 20px;
+    }
+    .nav-wrapper .close-sidebar{
+        position: relative;
+        z-index: 9;
+        display: inline-block;
+    }
+    .logo-bar{
+        height: 50px;
+        object-fit: cover;
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        align-content: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .nav-out{
+        position: fixed;
+        z-index: 7;
+        display: none;
+        background-color: black;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        transition: 320ms ease-in-out;
+    }
+    #sidebar-active:checked ~ .buttons{
+        display: flex;
+        animation: nav-open 320ms ease-in-out forwards;
+        position: relative;
+    }
+    #sidebar-active:checked ~ .nav-out{
+        display: flex;
+        animation: fade-in-40 320ms forwards;
+    }
         }
 
         @media(min-width: 827px){ /*Big Screens*/
@@ -29,9 +117,73 @@
                 font-size: 32pt; 
                 font-weight: 600;
             }
+            nav{
+        position: fixed;
+        background-color: var(--primary-color);
+        border-radius: 20px;
+    }
+    
+    nav .nav-wrapper{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    
+    .nav-wrapper .open-sidebar{
+        display: none;
+    }
+    
+    .nav-wrapper .close-sidebar{
+        display: none;
+    }
+    
+    .nav-wrapper .buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+        align-self: center;
+        justify-self: center;
+    }
+    .logo-bar{
+        width: 300px;
+        height: 50px;
+        position: relative;
+        object-fit: cover;
+        background-size: 90%;
+        background-repeat: no-repeat;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
         }
+        
+
     </style>
 </head>
+<nav>
+    <div class="nav-wrapper">
+        <a href="index.html" class="logo-bar">Top Shelf</a>
+        <input type="checkbox" id="sidebar-active" class="nav-check">
+        <label for="sidebar-active" class="open-sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="45px" viewBox="0 0 32 32">
+                <rect x="0" y="3" fill="#000000" width="32" height="4" rx="3" ry="3"/>
+                <rect x="0" y="14" fill="#000000" width="32" height="4" rx="3" ry="3"/>
+                <rect x="0" y="25" fill="#000000" width="32" height="4" rx="3" ry="3"/>
+            </svg>
+        </label>
+        <div class="buttons">
+            <label for="sidebar-active" class="close-sidebar">
+                <svg height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#0F1729"></path> </g></svg>
+            </label>
+            <a href="#how-it-works">About</a>
+            <a href="#why-us">Locations</a>
+            <a href="#video-explanation">Deals</a>
+            <a href="#statistics">Contact Us</a>
+        </div>
+        <label class="nav-out" id="overlay" for="sidebar-active"></label>
+    </div>
+</nav>
 <body>
     <header>
         <div class="splash">
@@ -149,8 +301,8 @@
 </body>
 <footer>
     <div class="folder-edge">
-        <div class="folder-left" style="background-color: var(--text-primary-color);"></div>
-        <div class="folder-right" style="background-color: var(--text-primary-color);"></div>
+        <div class="folder-left" style="background-color: var(--text-primary-color-color);"></div>
+        <div class="folder-right" style="background-color: var(--text-primary-color-color);"></div>
     </div>
     <div class="contact">
         <div class="contact-wrapper">

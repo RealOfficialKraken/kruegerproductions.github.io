@@ -1,6 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap');
 
+cover{
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-background);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fade-out-zap 320ms 4s ease-in-out forwards;
+    z-index: 99;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+cover div{
+    border: 1px solid rgb(115, 0, 255);
+    background-color: rgb(0, 174, 255);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    animation: circle-in 3s ease-in-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+cover div .zap-logo::after{
+    content: '';
+    opacity: 0;
+    animation: slide-up 4s 1s forwards;
+    border: none;
+    background-image: url('images/ZAP_Haptics.png');
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    max-width: 70%;
+    max-height: 70%;
+    top: -300px;
+}
 .haptiks-body{
     position: relative;
         top: 100px;
@@ -303,8 +345,11 @@
     }
     .haptiks-body .image-flex{
         width: 50%;
-        border: 2px solid black;
+        background-position: center;
+        background-repeat: no-repeat;
         height: 400px;
+        background-image: url('images/top-shelf-gif.gif');
+        border-radius: 20px;
     }
     .hiw-flex .content-card{
         flex-direction: row;
