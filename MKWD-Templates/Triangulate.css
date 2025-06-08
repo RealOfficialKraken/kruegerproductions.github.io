@@ -247,9 +247,9 @@ body{
 }
 
 .popup-content{
-    width: 70%;
+    width: 0;
     min-height: 200px;
-    height: 50%;
+    height: 0;
     background-color: var(--color-secondary);
     padding: 20px;
     inset: 0;
@@ -258,6 +258,14 @@ body{
     overflow-y: hidden;
     display: flex;
     z-index: -99;
+}
+
+.popup-content:popover-open{
+    z-index: 999;
+    display: flex;
+    width: 70%;
+    height: 50%;
+    transition: width 320ms ease-in-out, height 320ms ease-in-out;
 }
 
 .popup-content .cont{
