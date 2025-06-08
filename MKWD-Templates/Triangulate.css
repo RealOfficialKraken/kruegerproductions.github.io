@@ -269,6 +269,10 @@ body{
     transition: width 320ms ease-in-out, height 320ms ease-in-out;
 }
 
+[popover]:not(:popover-open):not(dialog[open]) {
+    display: none;
+}
+
 .popup-content.\:popover-open{
     z-index: 999;
     display: flex;
