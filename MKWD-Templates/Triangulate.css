@@ -256,11 +256,20 @@ body{
     margin: 0 auto;
     top: 100px;
     overflow-y: hidden;
+    overflow-x: hidden;
     display: flex;
     z-index: -99;
 }
 
 .popup-content:popover-open{
+    z-index: 999;
+    display: flex;
+    width: 70%;
+    height: 50%;
+    transition: width 320ms ease-in-out, height 320ms ease-in-out;
+}
+
+.popup-content.\:popover-open{
     z-index: 999;
     display: flex;
     width: 70%;
