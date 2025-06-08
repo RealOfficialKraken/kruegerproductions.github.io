@@ -239,11 +239,14 @@ body{
     height: 200px;
     position: relative;
     z-index: 99;
-    transition: 320ms ease-in-out border;
+    transition: 120ms ease-in-out;
+    border-radius: 10px;
+    border: 2px solid black;
 }
 
 #clickable-pop:hover{
-    border: 2px solid black;
+    padding: 10px;
+    border: 3px solid black;
 }
 
 .popup-content{
@@ -269,9 +272,6 @@ body{
     transition: width 320ms ease-in-out, height 320ms ease-in-out;
 }
 
-[popover]:not(:popover-open):not(dialog[open]) {
-    display: none;
-}
 
 .popup-content.\:popover-open{
     z-index: 999;
