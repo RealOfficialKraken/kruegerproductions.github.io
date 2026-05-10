@@ -6,180 +6,600 @@
     <title>Krueger Productions | About</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        html{
-            height: 100vh;
+        html {
+            height: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
-        body{
-            height: 100%;
-            width: 100vw;
-            padding-bottom: 200px;
-        }
-        
-        .wakatime-stats{
-            position: absolute;
-            top: 0;
-            left: 0;
-            scroll-snap-align: start;
-        }
-        .scrollable{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            gap: 30px;
-            margin: auto;
-            height: 100%;
-            max-height: 100%;
-            width: 305%;
-            scroll-snap-type: x mandatory;
-        }
-        #content-stat{
+
+        body {
+            min-height: 100vh;
+            height: auto;
             width: 100%;
-            max-width: 800px;
-            min-width: 600px;
-            height: 99%;
-            background-color: rgb(45, 37, 57);
-            border-radius: 5px;
-            border: 1px solid white;
-            font-family: 'Roboto Mono';
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: visible;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(0, 255, 213, 0.18), transparent 32%),
+                radial-gradient(circle at 88% 16%, rgba(224, 100, 255, 0.16), transparent 30%),
+                linear-gradient(180deg, #08090e 0%, #16111f 44%, #f4f6fb 44%, #f4f6fb 100%);
+            color: #141620;
         }
-        #primary-text{
-            position: relative; 
-            top: 20px; 
-            left: 30px; 
-            color: cyan; 
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-main {
+            top: 0;
+            right: 0;
+            bottom: auto;
+            left: 0;
+            min-height: 64px;
+            height: 64px;
+            padding: 0 6vw;
+            box-sizing: border-box;
+            background-color: rgba(8, 9, 14, 0.72);
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+        }
+
+        .navbar-left-inner::before {
+            content: "Krueger Productions";
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 13pt;
             font-weight: 700;
         }
-        #primary-ptext{
-            position: relative; 
-            top: 40px; 
-            left: 30px; 
-            color: rgb(255, 0, 208); 
-            font-weight: 600;
+
+        .navbar-right-inner {
+            gap: 8px;
         }
-        #secondary-ptext{
-            color: cyan;
+
+        .nav-button {
+            width: auto;
+            min-width: 92px;
+            height: 44px;
+            padding: 0 18px;
+            border-bottom: 0;
+            border-radius: 999px;
+            color: rgba(255, 255, 255, 0.76);
+            font-size: 12pt;
         }
-        .gc-tag{
-            color:rgb(255, 227, 69);
+
+        .nav-button:hover,
+        .nav-button:focus-visible {
+            border-bottom: 0;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            outline: none;
         }
-        .gc-tag::after{
-            content: 'Season 13 Grand Champion';
-            position: absolute;
-            left: 0;
-            filter: blur(0.3rem);
+
+        .about-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+            gap: 48px;
+            align-items: center;
+            width: min(1160px, calc(100% - 44px));
+            min-height: 620px;
+            margin: 0 auto;
+            padding: 128px 0 72px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        .about-kicker {
+            margin: 0 0 14px;
+            color: #58f0ff;
+            font-family: Roboto Mono, monospace;
+            font-size: 11pt;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .about-hero h1 {
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(3rem, 8vw, 6.7rem);
+            line-height: 0.95;
+            letter-spacing: 0;
+        }
+
+        .about-summary {
+            max-width: 720px;
+            margin: 28px 0 0;
+            color: rgba(255, 255, 255, 0.78);
+            font-family: Poppins, sans-serif;
+            font-size: 14pt;
+            line-height: 1.75;
+        }
+
+        .profile-panel {
+            display: grid;
+            grid-template-columns: 112px minmax(0, 1fr);
+            gap: 22px;
+            align-items: start;
+            align-self: start;
+            padding: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+        }
+
+        .profile-image {
+            width: 112px;
+            min-height: 112px;
+            aspect-ratio: 1;
+            border: 2px solid rgba(255, 255, 255, 0.32);
+            border-radius: 50%;
+            background-image: url("images/pfp.png");
+            background-color: rgba(255, 255, 255, 0.08);
+            background-position: center 34%;
+            background-repeat: no-repeat;
+            background-size: 118%;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
+        }
+
+        .profile-facts {
+            display: grid;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Roboto Mono, monospace;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 10.5pt;
+        }
+
+        .profile-facts li {
+            width: 100%;
+            margin: 0;
+        }
+
+        .profile-facts strong {
+            display: block;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 13pt;
+        }
+
+        .about-section {
+            width: 100%;
+            background: #f4f6fb;
+        }
+
+        .about-inner {
+            width: min(1160px, calc(100% - 44px));
+            margin: 0 auto;
+            padding: 86px 0;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: minmax(0, 0.7fr) minmax(280px, 0.8fr);
+            gap: 36px;
+            align-items: end;
+            margin-bottom: 34px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            color: #111827;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(2.2rem, 5vw, 4.8rem);
+            line-height: 1;
+        }
+
+        .section-header p {
+            margin: 0;
+            color: #4b5565;
+            font-family: Poppins, sans-serif;
+            font-size: 12.5pt;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card,
+        .work-card {
+            border: 1px solid rgba(17, 24, 39, 0.08);
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 16px 48px rgba(15, 23, 42, 0.08);
+        }
+
+        .skill-card {
+            padding: 26px;
+        }
+
+        .skill-card h3,
+        .work-card h3 {
+            margin: 0 0 16px;
+            color: #111827;
+            font-family: Poppins, sans-serif;
+            font-size: 16pt;
+            line-height: 1.2;
+        }
+
+        .skill-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Roboto Mono, monospace;
+            color: #4b5565;
+            font-size: 10.5pt;
+            line-height: 1.55;
+        }
+
+        .skill-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+            padding-bottom: 10px;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .skill-list strong {
+            color: #6d28d9;
+            white-space: nowrap;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .work-card {
+            padding: 28px;
+        }
+
+        .work-card p {
+            margin: 0;
+            color: #4b5565;
+            font-family: Poppins, sans-serif;
+            font-size: 11.5pt;
+            line-height: 1.65;
+        }
+
+        .highlight-band {
+            background: #111827;
+            color: white;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            width: 100%;
+            margin: 0;
+        }
+
+        .highlight-item {
+            width: 100%;
+            margin: 0;
+            box-sizing: border-box;
+            padding: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .highlight-item strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #58f0ff;
+            font-family: Poppins, sans-serif;
+            font-size: 18pt;
+        }
+
+        .highlight-item span {
+            color: rgba(255, 255, 255, 0.72);
+            font-family: Roboto Mono, monospace;
+            font-size: 10pt;
+            line-height: 1.5;
+        }
+
+        .workflow-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .workflow-list li {
+            width: 100%;
+            margin: 0;
+            box-sizing: border-box;
+            padding: 24px;
+            border-left: 4px solid #6d28d9;
+            border-radius: 8px;
+            background: white;
+            color: #4b5565;
+            font-family: Poppins, sans-serif;
+            font-size: 11.5pt;
+            line-height: 1.65;
+            box-shadow: 0 16px 48px rgba(15, 23, 42, 0.07);
+        }
+
+        .workflow-list strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #111827;
+            font-size: 14pt;
+        }
+
+        @media (max-width: 1126px) {
+            .navbar-main {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                height: 64px;
+                min-height: 64px;
+                padding: 10px 18px;
+            }
+
+            .navbar-left-inner {
+                display: none;
+            }
+
+            .navbar-right-inner {
+                justify-content: center;
+            }
+
+            .nav-button {
+                min-width: 0;
+                height: 40px;
+                padding: 0 14px;
+                font-size: 11pt;
+            }
+
+            .about-hero,
+            .section-header,
+            .skills-grid,
+            .work-grid,
+            .highlight-grid,
+            .workflow-list {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero {
+                width: min(100% - 36px, 720px);
+                min-height: 0;
+                padding: 112px 0 54px;
+            }
+
+            .about-summary {
+                font-size: 12pt;
+            }
+
+            .profile-image {
+                width: 82px;
+                min-height: 82px;
+                background-size: 122%;
+            }
+
+            .about-inner {
+                width: min(100% - 36px, 720px);
+                padding: 62px 0;
+            }
+
+            .profile-panel {
+                grid-template-columns: 82px minmax(0, 1fr);
+                gap: 14px;
+                padding: 16px;
+            }
+
+            .profile-facts {
+                gap: 10px;
+            }
+
+            .profile-facts li {
+                width: 100%;
+                margin: 0;
+            }
+
+            .highlight-grid,
+            .workflow-list {
+                width: 100%;
+                justify-items: stretch;
+                align-items: stretch;
+            }
+
+            .highlight-item,
+            .workflow-list li {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .skill-list li {
+                display: grid;
+                gap: 4px;
+                justify-items: center;
+                text-align: center;
+            }
+
+            .skill-list strong {
+                white-space: normal;
+            }
+
+            .skill-card h3 {
+                text-align: center;
+            }
         }
     </style>
 </head>
-<nav class="navbar-main">
-    <div class="navbar-left-inner">
-    </div>
-    <div class="navbar-right-inner">
-        <a class="nav-button" id="bhome" href="index.html">Home</a>
-        <a class="nav-button" id="babout" href="about.html">About</a>
-        <a class="nav-button" id="bresume" target="blank" href="#">Resume</a>
-    </div>
-</nav>
 <body>
-    <div class="content-splash"
-    style="position: absolute;
-           height: 1100px;
-          "
-    >
-        <div class="splash-background" style="background-color: rgb(62, 10, 9);">
+    <nav class="navbar-main" aria-label="Primary navigation">
+        <div class="navbar-left-inner"></div>
+        <div class="navbar-right-inner">
+            <a class="nav-button" id="bhome" href="index.html">Home</a>
+            <a class="nav-button" id="babout" href="about.html">About</a>
+            <a class="nav-button" id="bresume" target="_blank" rel="noreferrer" href="#">Resume</a>
         </div>
-        <div class="splash-glass" style="height: 100%;">
-            <div class="splash-glass-after2"></div>
-        </div>
-        <div class="splash-borders"></div>
-        <div class="content-overlay" style="position: absolute; opacity: 1; z-index: 5;">
-            <div class="animated-text-block" id="white-fuzz" style="color: white; gap: 50px; display: flex; justify-content: center; align-items: center;">
-                <h3 style="font-size: 20pt;">Matt Krueger</h3>
-                <p>
-                    Welcome to my website, built from scratch! I also built <strong style="color: rgb(255, 91, 255)">KrakenMODS</strong>, and several other websites for various businesses.
+    </nav>
+
+    <main>
+        <section class="about-hero" aria-labelledby="about-title">
+            <div>
+                <p class="about-kicker">About Matt Krueger</p>
+                <h1 id="about-title">Builder, tinkerer, and support-minded developer.</h1>
+                <p class="about-summary">
+                    I build websites, tools, mods, and creative systems from scratch. I love making cool things, even if others don't see it. I can spend days (if not weeks) on a project just to say "I did this", and I can call it my own.
                 </p>
             </div>
-        <div class="flex-content">
-            <div class="scrollable">
-                <svg class="wakatime-stats">
-                    <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=TheMattBookPro&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&theme=synthwave&size_weight=0.5&count_weight=0.5&title_color=36F9F6&langs_count=10" alt="My GitHub Time Stats" />
-                </svg>
-                <div class="content-stat-1" id="content-stat">
-                    <h2 id="primary-text">
-                        General Skillsets
-                    </h2>
-                    <p id="primary-ptext">
-                        Microsoft Windows <strong style="color: cyan;">- 10+ Years</strong>
-                        <br>
-                        Arch Linux <strong style="color: cyan;">- 4 Months</strong>
-                        <br>
-                        Mac OS X <strong style="color: cyan;">- 10+ Years</strong>
-                        <br>
-                        Customer Service <strong style="color: cyan;">- 7 Years</strong>
-                        <br>
-                        IT Support <strong style="color: cyan;">- 3 Years</strong>
-                        <br>
-                        Current Projects Maintained: <strong style="color: cyan;">6</strong>
+
+            <aside class="profile-panel" aria-label="Quick profile">
+                <div class="profile-image" aria-hidden="true"></div>
+                <ul class="profile-facts">
+                    <li><strong>Current Focus</strong> Web projects, KrakenMODS, and tooling</li>
+                    <li><strong>Work Style</strong> Hands-on, experimental, detail-driven</li>
+                    <li><strong>Support Background</strong> Customer service and IT troubleshooting</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="about-section" aria-labelledby="skills-title">
+            <div class="about-inner">
+                <div class="section-header">
+                    <h2 id="skills-title">Skills</h2>
+                    <p>
+                        A structured view of the tools and areas I work in most: systems, web development, creative software, and support.
                     </p>
                 </div>
-                <div class="content-stat-2" id="content-stat">
-                    <h2 id="primary-text">
-                        Other Skillsets
-                    </h2>
-                    <p id="primary-ptext">
-                        Unity Engine <strong style="color: cyan;">- 2 Years</strong>
-                        <br>
-                        Vegas Pro 12 <strong style="color: cyan;">- 10+ Years</strong>
-                        <br>
-                        CAD User Perspective (Level Design) <strong style="color: cyan;">- 9 Years</strong>
-                        <br>
-                        Microsoft Excel <strong style="color: cyan;">- 14 Months</strong>
-                        <br>
-                        Adobe Photoshop CS6-2025 <strong style="color: cyan;">- 10+ Years</strong>
-                        <br>
-                        FL Studio <strong style="color: cyan;">- 6 Years</strong>
-                        <br>
-                        <strong class="gc-tag">Season 13 Grand Champion</strong> in Rocket League
-                        <br>
-                    </p>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>Systems & Support</h3>
+                        <ul class="skill-list">
+                            <li>Microsoft Windows <strong>10+ years</strong></li>
+                            <li>macOS <strong>6 years</strong></li>
+                            <li>Arch Linux <strong>Hands-on</strong></li>
+                            <li>IT Support <strong>3 years</strong></li>
+                            <li>Customer Service <strong>7 years</strong></li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Development</h3>
+                        <ul class="skill-list">
+                            <li>HTML & CSS <strong>Portfolio sites</strong></li>
+                            <li>JavaScript <strong>Interactive pages</strong></li>
+                            <li>GitHub <strong>Project hosting</strong></li>
+                            <li>Docker <strong>Local API</strong></li>
+                            <li>Project Maintenance <strong>6 active</strong></li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Creative Tools</h3>
+                        <ul class="skill-list">
+                            <li>Adobe Photoshop <strong>10+ years</strong></li>
+                            <li>Vegas Pro 12 <strong>10+ years</strong></li>
+                            <li>FL Studio <strong>8 years</strong></li>
+                            <li>Unity Engine <strong>2 years</strong></li>
+                            <li>Level Design / CAD Perspective <strong>3 years</strong></li>
+                        </ul>
+                    </article>
                 </div>
             </div>
-        </div>
-        <div class="content-lower" id="white-fuzz" style="padding-bottom: 50px; color: white; gap: 50px; display: flex; justify-content: center; align-items: center;">
-            <br>
-            <h3>I use Windows for user design reference, and Arch-Linux for compilation.</h3>
-            <p>
-                I love to create, destroy, and experiment. 
-            </p>
-            <p>
-                I operate <strong style="color: cyan;">Bind 9</strong> to set up my own DNS Server for home-labs
-            </p>
-        </div>
-        </div>
-    </div>
+        </section>
+
+        <section class="about-section highlight-band" aria-labelledby="highlights-title">
+            <div class="about-inner">
+                <div class="section-header">
+                    <h2 id="highlights-title" style="color: white;">Highlights</h2>
+                    <p style="color: rgba(255, 255, 255, 0.72);">
+                        A few quick signals for the kind of work I enjoy and the experience I bring into projects.
+                    </p>
+                </div>
+
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <strong>6 Years</strong>
+                        <span>Current projects maintained across sites, templates, and experiments.</span>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>10+ Years</strong>
+                        <span>Long-running experience with Windows, macOS, Photoshop, Music creation from scratch, and video editing.</span>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>7 Years</strong>
+                        <span>Customer service background that helps me build with real users in mind.</span>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>Competitive Gaming Highlight</strong>
+                        <span>Matt is a Season 13 Grand Champion in Rocket League. All bragging rights reserved</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" aria-labelledby="work-title">
+            <div class="about-inner">
+                <div class="section-header">
+                    <h2 id="work-title">What I Build</h2>
+                    <p>
+                        My work tends to sit in the margin of practical utility, and creative ability
+                    </p>
+                </div>
+
+                <div class="work-grid">
+                    <article class="work-card">
+                        <h3>Websites</h3>
+                        <p>I design and build portfolio, project, and business sites with a focus on custom visual identity and hands-on implementation.</p>
+                    </article>
+                    <article class="work-card">
+                        <h3>Mods & Independent Contract Work</h3>
+                        <p>I maintain KrakenMODS and Haptic Valley, creating a hands-on experience with how a contracting business style works.</p>
+                    </article>
+                    <article class="work-card">
+                        <h3>API Integration</h3>
+                        <p>I have used and created my own API gateways for extensive use in both my business, and for practical utility.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" aria-labelledby="workflow-title">
+            <div class="about-inner">
+                <div class="section-header">
+                    <h2 id="workflow-title">How I Work</h2>
+                    <p>
+                        I like projects that let me learn by building, test ideas quickly, and keep improving the result.
+                    </p>
+                </div>
+
+                <ul class="workflow-list">
+                    <li><strong>Build from scratch</strong>I prefer understanding the moving parts myself, then shaping them into something clean and usable.</li>
+                    <li><strong>Design through use</strong>I care about how an interface feels after repeated use, not just how it looks in a screenshot.</li>
+                    <li><strong>Troubleshoot deeply</strong>Support experience helps me break problems down and explain fixes clearly.</li>
+                    <li><strong>Experiment often</strong>I like creating, testing, breaking, and refining ideas until the project feels solid.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 </body>
-<p style="text-align: center; position: absolute; top: 1100px;">
-    To see the content I'm working on, check out my Top Projects in the Home Page
-</p>
 </html>
-
-
-<!-- THIS IS OLD CODE, ROUGH DRAFT
-<div class="overlay-1" id="overlay-card">
-                <h1>
-                    Tracking Code since 4/23/2024
-                </h1>
-            </div>
-            <div class="overlay-2" id="overlay-card">
-                <svg class="wakatime-stats">
-                    <img align="center" width="90%" height="95%" src="https://github-readme-stats.vercel.app/api/wakatime?username=TheMattBookPro&theme=synthwave&size_weight=0.5&count_weight=0.5&title_color=36F9F6&langs_count=10" alt="My GitHub Time Stats" />
-                </svg>
-            </div>
-            <div class="overlay-3" id="overlay-card">
-                Related to a "Freddy Krueger"
-            </div>
-            <div class="overlay-4" id="overlay-card">Almost drowned in Mexico (WIP)</div>
-            <div class="overlay-5" id="overlay-card"></div>
-            <div class="overlay-6" id="overlay-card">6</div>
-            <div class="body-content2"></div>
--->

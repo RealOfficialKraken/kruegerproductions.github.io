@@ -12,8 +12,196 @@
             display: block;
             color: white;
         }
+
+        .km-home-content{
+            position: relative;
+            z-index: 1;
+            background:
+                radial-gradient(circle at 15% 0%, rgba(255, 83, 83, 0.16), transparent 28%),
+                radial-gradient(circle at 85% 12%, rgba(124, 58, 237, 0.24), transparent 32%),
+                linear-gradient(180deg, rgb(20, 20, 20) 0%, rgb(10, 10, 14) 100%);
+            color: white;
+            padding: 86px 22px 96px;
+        }
+
+        .km-section-inner{
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        .km-eyebrow{
+            margin: 0 0 14px;
+            color: rgb(255, 186, 77);
+            font-family: Roboto Mono, monospace;
+            font-size: 11pt;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .km-title{
+            max-width: 900px;
+            margin: 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(2.4rem, 6vw, 5.4rem);
+            line-height: 0.98;
+            letter-spacing: 0;
+        }
+
+        .km-lead{
+            max-width: 840px;
+            margin: 24px 0 44px;
+            color: rgb(207, 207, 207);
+            font-family: Poppins, sans-serif;
+            font-size: 13pt;
+            line-height: 1.75;
+        }
+
+        .km-feature-grid{
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            grid-template-rows: repeat(2, minmax(260px, auto));
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .km-card{
+            min-width: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+            overflow: hidden;
+        }
+
+        .km-media-card{
+            grid-row: span 2;
+            min-height: 540px;
+            background-image:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.78)),
+                url("OG-HM1.png");
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .km-card-copy{
+            padding: 30px;
+        }
+
+        .km-card h3{
+            margin: 0 0 14px;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 20pt;
+            line-height: 1.15;
+        }
+
+        .km-card p{
+            margin: 0;
+            color: rgb(207, 207, 207);
+            font-family: Poppins, sans-serif;
+            font-size: 11.5pt;
+            line-height: 1.7;
+        }
+
+        .km-logo-row{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .km-logo-row img{
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+        }
+
+        .km-solution{
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 24px;
+            align-items: center;
+            padding: 32px;
+            margin-top: 18px;
+            border: 1px solid rgba(255, 212, 131, 0.22);
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(172, 112, 0, 0.16), rgba(124, 58, 237, 0.12));
+        }
+
+        .km-solution h3{
+            margin: 0 0 12px;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 22pt;
+        }
+
+        .km-solution p{
+            margin: 0;
+            color: rgb(218, 218, 218);
+            font-family: Poppins, sans-serif;
+            font-size: 11.5pt;
+            line-height: 1.7;
+        }
+
+        .km-footer-note{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .km-note{
+            margin: 0;
+            padding: 18px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.045);
+            color: rgb(210, 210, 210);
+            font-family: Poppins, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.6;
+        }
+
+        .km-note a{
+            color: rgb(255, 186, 77);
+            font-weight: 700;
+        }
+
+        @media(max-width: 900px){
+            .km-home-content{
+                padding: 64px 18px 78px;
+            }
+
+            .km-feature-grid,
+            .km-solution,
+            .km-footer-note{
+                grid-template-columns: 1fr;
+            }
+
+            .km-media-card{
+                min-height: 320px;
+                grid-row: auto;
+            }
+
+            .km-card-copy,
+            .km-media-card,
+            .km-solution{
+                padding: 24px;
+            }
+
+            .km-solution .j-button{
+                justify-self: start;
+                margin: 8px 0 0;
+            }
+        }
     </style>
 </head>
+<body class="content">
     <nav class="navbar-main">
         <div class="navbar-items">
             <div class="OG-hamburger">
@@ -25,9 +213,8 @@
                         KrakenMODS
                     </a>
                     <a class="hm-button" id="nav-button" href="index.html">Home</a>
-                    <a class="hm-button" id="nav-button" href="heromode.html">HeroMode+</a>
+                    <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
                     <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
-                    <a class="journey-button" id="nav-button" href="journey.html">Journey</a>
                     <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
                 </div>
                 <label id="overlay" for="sidebar-active"></label>
@@ -41,9 +228,8 @@
             </a>
         </div>
         <div class="navbar-inner">
-            <a class="hm-button" id="nav-button" href="heromode.html">HeroMode+</a>
+            <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
             <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
-            <a class="journey-button" id="nav-button" href="journey.html">Journey</a>
             <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
         </div>
         <div class="none"></div>
@@ -60,7 +246,6 @@
             </a>
         </div>
     </nav>
-    <body class="content">
         <div class="content-splash">
             <div style="top: 45%;
             left: 50%;
@@ -85,70 +270,57 @@
             </div>
         </div>
         </div>
-    </body>
-    <body>
-        <div class="header-text"
-        style="
-        padding: 0px 20px;
-        text-align: center;
-        "
-        >
-            <h2 class="Title">
-                Refined, and Retuned Gameplay Elements
-            </h2>
-            <p style="color: rgb(207, 207, 207);">
-                What started as a simple few changes to <strong id="blue-font">Jak II</strong>'s 
-                traffic manager, turned out to become a full-scale passion project.
-                Thanks to 
-                <strong id="orange-font">
-                    OpenGOAL</strong>,
-                    <strong id="pink-font">
-                        KrakenMODS
-                    </strong>
-                    brings completely restructured <STRONG style="color: red;">modded gameplay</STRONG> across the original Naughty Dog IP
-                    <strong id="blue-font">Jak II</strong>
-                    and
-                        <strong style="color: orange;">
-                        Jak 3</strong>,
-                20 years later!
+    <main class="km-home-content">
+        <section class="km-section-inner" aria-labelledby="km-home-title">
+            <p class="km-eyebrow">OpenGOAL Modding is possible</p>
+            <h2 class="km-title" id="km-home-title">Refined and retuned gameplay elements for Jak II and Jak 3.</h2>
+            <p class="km-lead">
+                What started as a few changes to <strong id="blue-font">Jak II</strong>'s traffic manager grew into a full-scale passion project. Thanks to <strong id="orange-font">OpenGOAL</strong>, <strong id="pink-font">KrakenMODS</strong> rebuilds and rebalances gameplay systems across the original Naughty Dog trilogy, 20 years later.
             </p>
-            <br>
-            <br>
-            <div class="flex-body">
-                <div class="card-1"></div>
-                <div class="card-2">
-                    <h1>
-                        The Problem:
-                    </h1>
-                    <p>
-                        How do you figure out an old code-base that has little to <strong style="color: red;">no documentation</strong> on it?
-                    </p>
-                </div>
-                <div class="card-3">
-                    <img class="opengoal-logo" src="opengoal-logo.png">
-                    <p>
-                        Game Oriented Assembly Lisp (GOAL) was created back in 1999, Founded by Naughty Dog--and they still use it to this day. It was used to compile changes while the game was running, to save time from building the game over and over.
-                    </p>
-                </div>
-                <div class="card-4">
-                    OpenGOAL was created to run the engine open-sourced on PC. 
-                    <br>
-                    This allowed the original Jak and Daxter Trilogy to be ported over to PC, 1:1. Everything made on this engine is built custom, and for this reason, the original founders of Naughty Dog said rebuilding the trilogy to later hardware was "an impossible project". My modding journey with these games taught me exactly the solution to the problem above.
-                    <br><br>
-                    <a href="journey.html" class="j-button">Go to Journey</a>
-                    <br><br>
-                </div>
+
+            <div class="km-feature-grid">
+                <article class="km-card km-media-card">
+                    <div>
+                        <h3>Custom gameplay, tested in motion.</h3>
+                        <p>Combat, traversal, traffic, and encounter tuning are treated as connected systems instead of isolated edits.</p>
+                    </div>
+                </article>
+
+                <article class="km-card">
+                    <div class="km-card-copy">
+                        <h3>The Problem</h3>
+                        <p>How do you figure out an old codebase with little to <strong style="color: rgb(255, 83, 83);">no documentation</strong>, while still making changes that feel good in actual gameplay?</p>
+                    </div>
+                </article>
+
+                <article class="km-card">
+                    <div class="km-card-copy">
+                        <div class="km-logo-row">
+                            <img src="opengoal-logo.png" alt="OpenGOAL logo">
+                            <h3>OpenGOAL</h3>
+                        </div>
+                        <p>GOAL was a revolutionary engine built by Naughty Dog for their respective games. OpenGOAL brings that engine to PC, making deeper study, testing, and modding possible.</p>
+                    </div>
+                </article>
             </div>
-        </div>
-        <center>
-            <p style="color: white;">
-                All of my mods are currently still actively being maintained. To report a bug, open a request <a target="blank" href="https://discord.com/invite/VZbXMHXzWv">here</a>
-            </p>
-            <p style="color: white;">
-                This website is still a WIP, certain pages aren't implemented yet.
-            </p>
-        </center>
-        <br><br>
-        <br><br>
-    </body>
+
+            <article class="km-solution">
+                <div>
+                    <h3>The modding journey <strong style="color: orange;">is</strong> the documentation.</h3>
+                    <p>OpenGOAL made the original Jak and Daxter trilogy playable on PC. KrakenMODS builds on that foundation through my careful experimentation.</p>
+                </div>
+                <a href="heromode.html" class="j-button">See where the Journey begins</a>
+            </article>
+
+            <div class="km-footer-note">
+                <p class="km-note">
+                    All mods are actively maintained. To report a bug or request support, open a request <a target="_blank" rel="noreferrer" href="https://discord.com/invite/VZbXMHXzWv">here</a>.
+                </p>
+                <p class="km-note">
+                    This site is still a work in progress, so some pages and project details may continue to evolve.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
 </html>

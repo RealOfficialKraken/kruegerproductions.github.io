@@ -4,55 +4,509 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>KrakenMODS | HeroMode+</title>
+    <title>KrakenMODS | HM+ Jak II</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 84px;
+        }
+
+        body {
+            min-height: 100vh;
+            height: auto;
+            width: 100%;
+            margin: 0;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 14% 2%, rgba(255, 75, 75, 0.16), transparent 30%),
+                radial-gradient(circle at 86% 8%, rgba(124, 58, 237, 0.22), transparent 32%),
+                linear-gradient(180deg, rgb(12, 9, 18) 0%, rgb(15, 15, 19) 42%, rgb(9, 9, 12) 100%);
+            color: white;
+        }
+
+        .journey-page {
+            width: min(1240px, calc(100% - 44px));
+            margin: 0 auto;
+            padding: 112px 0 96px;
+        }
+
+        .journey-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 320px;
+            gap: 34px;
+            align-items: end;
+            margin-bottom: 34px;
+        }
+
+        .journey-kicker {
+            margin: 0 0 12px;
+            color: rgb(255, 186, 77);
+            font-family: Roboto Mono, monospace;
+            font-size: 11pt;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .journey-hero h1 {
+            max-width: 900px;
+            margin: 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(2.7rem, 7vw, 6rem);
+            line-height: 0.98;
+            letter-spacing: 0;
+        }
+
+        .journey-hero p {
+            max-width: 800px;
+            margin: 24px 0 0;
+            color: rgb(210, 210, 210);
+            font-family: Poppins, sans-serif;
+            font-size: 13pt;
+            line-height: 1.75;
+        }
+
+        .journey-shell {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 30px;
+            align-items: start;
+        }
+
+        .journey-sidebar {
+            position: sticky;
+            top: 84px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+            overflow: hidden;
+        }
+
+        .journey-sidebar-header {
+            padding: 18px 18px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .journey-sidebar-header strong {
+            display: block;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 13pt;
+        }
+
+        .journey-sidebar-header span {
+            display: block;
+            margin-top: 4px;
+            color: rgb(170, 170, 180);
+            font-family: Roboto Mono, monospace;
+            font-size: 9.5pt;
+        }
+
+        .sidebar-links {
+            display: grid;
+            gap: 6px;
+            padding: 12px;
+        }
+
+        .journey-link {
+            display: block;
+            margin: 0;
+            padding: 11px 12px;
+            border-radius: 6px;
+            color: rgb(224, 205, 255);
+            font-family: Roboto Mono, monospace;
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 160ms ease background, 160ms ease color, 160ms ease transform;
+        }
+
+        .journey-link:hover,
+        .journey-link:focus-visible {
+            background: rgba(124, 58, 237, 0.36);
+            color: white;
+            outline: none;
+            transform: translateX(2px);
+        }
+
+        .journey-link-sub {
+            padding-left: 28px;
+            color: rgb(255, 186, 77);
+            font-size: 9.8pt;
+        }
+
+        .journey-content {
+            display: grid;
+            gap: 22px;
+            min-width: 0;
+        }
+
+        .journey-section {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.03));
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+            overflow: hidden;
+        }
+
+        .journey-section-body {
+            display: grid;
+            gap: 18px;
+            padding: 32px;
+        }
+
+        .journey-section h2 {
+            margin: 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(2rem, 4vw, 3.8rem);
+            line-height: 1;
+        }
+
+        .journey-section h3 {
+            margin: 8px 0 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 19pt;
+            line-height: 1.2;
+        }
+
+        .journey-section p,
+        .journey-section li {
+            margin: 0;
+            color: rgb(214, 214, 218);
+            font-family: Poppins, sans-serif;
+            font-size: 11.5pt;
+            line-height: 1.75;
+        }
+
+        .journey-callout {
+            margin: 0;
+            padding: 18px 20px;
+            border-left: 4px solid rgb(255, 186, 77);
+            border-radius: 8px;
+            background: rgba(255, 186, 77, 0.1);
+            color: rgb(255, 221, 166);
+            font-family: Poppins, sans-serif;
+            font-size: 12pt;
+            line-height: 1.65;
+        }
+
+        .journey-callout.green {
+            border-left-color: rgb(64, 220, 116);
+            background: rgba(64, 220, 116, 0.1);
+            color: rgb(173, 255, 199);
+        }
+
+        .journey-date {
+            color: rgb(164, 164, 174);
+            font-family: Roboto Mono, monospace;
+            font-size: 9.5pt;
+            font-weight: 700;
+        }
+
+        .journey-video,
+        .journey-image {
+            display: block;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            background: black;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+        }
+
+        .journey-video {
+            aspect-ratio: 16 / 9;
+            height: auto;
+        }
+
+        .journey-image {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .alert-grid,
+        .bug-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .alert-grid li,
+        .bug-list li {
+            padding: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .alert-grid strong,
+        .bug-list strong {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(255, 186, 77);
+            font-family: Roboto Mono, monospace;
+        }
+
+        @media(max-width: 1127px) {
+            .journey-page {
+                width: min(100% - 36px, 760px);
+                padding-top: 94px;
+            }
+
+            .journey-hero,
+            .journey-shell,
+            .alert-grid,
+            .bug-list {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .sidebar-links {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .journey-link-sub {
+                padding-left: 12px;
+            }
+
+            .journey-section-body {
+                padding: 24px;
+            }
+        }
+
+        @media(max-width: 620px) {
+            .sidebar-links {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-section-body {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
-<nav class="navbar-main">
-    <div class="navbar-items">
-        <div class="OG-hamburger">
-            <input type="checkbox" id="sidebar-active">
-            <label for="sidebar-active" class="open-sidebar-button"></label>
-            <div class="navbar-inner">
-                <a class="hp-button" id="nav-button" href="index.html">
-                    <div class="hp-icon"></div>
-                    KrakenMODS
-                </a>
-                <a class="hm-button" id="nav-button" href="index.html">Home</a>
-                <a class="hm-button" id="nav-button" href="heromode.html">HeroMode+</a>
-                <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
-                <a class="journey-button" id="nav-button" href="journey.html">Journey</a>
-                <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
-            </div>
-            <label id="overlay" for="sidebar-active"></label>
-            <div class="links-container">
-                <label for="sidebar-active" class="close-sidebar-button"></label>
-            </div>
-        </div>
-        <a class="hp-button" id="nav-button" href="index.html">
-            <div class="hp-icon"></div>
-            KrakenMODS
-        </a>
-    </div>
-    <div class="navbar-inner">
-        <a class="hm-button" id="nav-button" href="heromode.html">HeroMode+</a>
-        <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
-        <a class="journey-button" id="nav-button" href="journey.html">Journey</a>
-        <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
-    </div>
-    <div class="none"></div>
-    <div class="navbar-right-links">
-        <a class="github-icon" href="https://github.com/RealOfficialKraken"></a>
-        <!-- removed because I'm putting in hyperbuttons to my portfolio page.
-        <button class="sesarch-bar-button">
-            <img src="search.png" class="search-icon">
-            Search
-            <div class="Key">CTRL</div>
-            <div class="Key">K</div>
-        </button>
-        -->
-        </a>
-    </div>
-</nav>
 <body>
-    
+    <nav class="navbar-main">
+        <div class="navbar-items">
+            <div class="OG-hamburger">
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button"></label>
+                <div class="navbar-inner">
+                    <a class="hp-button" id="nav-button" href="index.html">
+                        <div class="hp-icon"></div>
+                        KrakenMODS
+                    </a>
+                    <a class="hm-button" id="nav-button" href="index.html">Home</a>
+                    <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+                    <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
+                    <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
+                </div>
+                <label id="overlay" for="sidebar-active"></label>
+                <div class="links-container">
+                    <label for="sidebar-active" class="close-sidebar-button"></label>
+                </div>
+            </div>
+            <a class="hp-button" id="nav-button" href="index.html">
+                <div class="hp-icon"></div>
+                KrakenMODS
+            </a>
+        </div>
+        <div class="navbar-inner">
+            <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+            <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
+            <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
+        </div>
+        <div class="none"></div>
+        <div class="navbar-right-links">
+            <a class="github-icon" href="https://github.com/RealOfficialKraken"></a>
+        </div>
+    </nav>
+
+    <main class="journey-page">
+        <header class="journey-hero">
+            <div>
+                <p class="journey-kicker">HM+ Jak II Development Log</p>
+                <h1>How HM+ Jak II became a full challenge mod.</h1>
+                <p>
+                    A more readable walkthrough of the experiments, bugs, tuning decisions, and OpenGOAL discoveries that shaped KrakenMODS.
+                </p>
+            </div>
+        </header>
+
+        <div class="journey-shell">
+            <aside class="journey-sidebar" aria-label="HM+ Jak II table of contents">
+                <div class="journey-sidebar-header">
+                    <strong>HM+ Jak II</strong>
+                    <span>Table of contents</span>
+                </div>
+                <nav class="sidebar-links">
+                    <a class="journey-link" href="#intro">Intro</a>
+                    <a class="journey-link" href="#traffic-manager">Traffic Manager</a>
+                    <a class="journey-link" href="#alert-levels">Alert Levels</a>
+                    <a class="journey-link" href="#heromode">Starting HeroMode+</a>
+                    <a class="journey-link journey-link-sub" href="#top-issues">Top Issues</a>
+                    <a class="journey-link" href="#roguelike-jak2">Developing the Next Mod</a>
+                </nav>
+            </aside>
+
+            <article class="journey-content">
+                <section class="journey-section" id="intro">
+                    <div class="journey-section-body">
+                        <h2>Intro</h2>
+                        <p>
+                            <strong style="color: cyan;">Jak II</strong> is set in a dystopian world 400 years after the first game. The city is filled with pedestrians, zoomers, and the occasional Krimzon Guard patrol.
+                        </p>
+                        <p class="journey-callout">
+                            The starting objective: instead of spawning pedestrians and civilian vehicles, spawn Krimzon Guards and Krimzon vehicles.
+                        </p>
+                        <span class="journey-date">Video date: 5/28/23</span>
+                        <video class="journey-video" controls>
+                            <source src="Videos/HMplus-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p>
+                            The first attempt did not work cleanly. Some guards paid attention when alerted, while others needed to be hit individually before they attacked.
+                        </p>
+                        <p>
+                            The code I edited was the right idea, but the wrong place to execute it. I did not know how the language worked yet, so I kept switching things around to get a feel for the system.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="journey-section" id="traffic-manager">
+                    <div class="journey-section-body">
+                        <h2>Finding the Traffic Manager</h2>
+                        <p>
+                            After two days of poking around, I realized the game had a process called <strong>traffic-manager</strong>, which spawns once when Jak is inside the city.
+                        </p>
+                        <p>
+                            The traffic manager calculates spawn points in real time, usually off screen. Then an entity of any kind can spawn at the position it generated, including vehicles, several times a second.
+                        </p>
+                        <p class="journey-callout">
+                            I knew exactly where to edit the values: find the array, then change the spawn values of traffic-manager.
+                        </p>
+                        <span class="journey-date">Video date: 5/30/23</span>
+                        <video class="journey-video" controls>
+                            <source src="Videos/HMplus-2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p>
+                            Instead of spawning 16 pedestrians and only 1 or 2 guards, it now spawned 0 pedestrians and 20 guards. The vehicles were affected too.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="journey-section" id="alert-levels">
+                    <div class="journey-section-body">
+                        <h2>Post Implementation</h2>
+                        <p class="journey-callout green">
+                            I am going to mention this once: I absolutely love going the extra mile.
+                        </p>
+                        <span class="journey-date">Video date: 5/30/23</span>
+                        <video class="journey-video" controls>
+                            <source src="Videos/HMplus-3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p>
+                            Since I spent a couple days figuring out Jak II traffic, I also edited the <strong style="color: red;">alert-level</strong> system. Check out how many guards pop up on the minimap after I go Dark Jak!
+                        </p>
+                        <ul class="alert-grid">
+                            <li><strong>Alert 0</strong>No alert. 40 guards max, 40 hellcats/guard-bikes. They patrol like landmines.</li>
+                            <li><strong>Alert 1</strong>Light alert. 8 guards max, 0 new hellcats/guard-bikes.</li>
+                            <li><strong>Alert 2</strong>Medium alert. 12 guards max, 4 riflemen, 3 hellcats/guard-bikes.</li>
+                            <li><strong>Alert 3</strong>Max alert. 40 guards max, all riflemen, 40 hellcats/guard-bikes. This is what the alert system immediately jumped to when going Dark Jak</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="journey-section" id="heromode">
+                    <div class="journey-section-body">
+                        <h2>Starting HeroMode+</h2>
+                        <p>
+                            Initially, I was going to leave it at that: change the guards, but keep the game vanilla. It did not last long.
+                        </p>
+                        <p>
+                            I wanted the mod to <strong style="color: orange;">push PC hardware to its limit, just as Naughty Dog did with the PS2</strong>. I started looking for attributes I could set to maximum, and found a place to edit turret firing speed in one sewer mission.
+                        </p>
+                        <span class="journey-date">Video date: 5/31/23</span>
+                        <video class="journey-video" controls>
+                            <source src="Videos/HMplus-4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p>
+                            While experimenting, I accidentally edited the turret firing amount. I kept it because it raised the range needed to dodge the turret.
+                        </p>
+                        <p class="journey-callout green">
+                            This was where I decided to push values to the best possible limit. HeroMode+ was born.
+                        </p>
+                        <p>
+                            Over the next <strong style="color: orange;">5 months</strong>, I looked over all 52 missions in Jak II, trying to make them feel fresh, wacky, and difficult enough to become a proper challenge mod.
+                        </p>
+                        <p>
+                            The odds were stacked heavily against the player, so I introduced <strong style="color: orange;">Gun Mods</strong>. Later, when those became too powerful, I leveled the field again with <strong style="color: red;">Random Modifiers</strong>.
+                        </p>
+                        <p>
+                            Example: <strong style="color: cyan;">Chanced Trip / Gain 10 Metalheads</strong>. Any input can trip Jak, delaying further inputs for a few seconds, but every trip grants currency.
+                        </p>
+                        <p class="journey-callout">
+                            You can re-roll modifiers to get a different one out of 7 modifiers.
+                        </p>
+                        <span class="journey-date">Video date: 10/28/23</span>
+                        <video class="journey-video" controls>
+                            <source src="Videos/teaserhm.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p>
+                            It was time to share what I had accomplished with the community in a teaser trailer featuring HeroMode+'s changes.
+                        </p>
+                        <p>
+                            Most of the mod's structure was composed of Lisp components, including a full array of "when" statements spanning over 10,000 lines of code.
+                        </p>
+                        <p class="journey-callout">
+                            It was not long before the release of the mod on 10/28/23.
+                        </p>
+                        <img class="journey-image" src="ModImage.png" alt="HeroMode+ mod release image">
+                    </div>
+                </section>
+
+                <section class="journey-section" id="top-issues">
+                    <div class="journey-section-body">
+                        <h2>Top Bugs and Issues</h2>
+                        <ul class="bug-list">
+                            <li><strong>TP-FB</strong>The hardest implementation involved hopping out of a save to play the final boss mission, reintroducing items, and preventing saves during the fight.</li>
+                            <li><strong>Projectile Ownership</strong>Some Gun Mods fired enemy projectiles from Jak's weapon, causing self-damage. The projectile had to be cloned and given its own parameters.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="journey-section" id="roguelike-jak2">
+                    <div class="journey-section-body">
+                        <h2>Developing My Next Mod</h2>
+                        <p>
+                            After HeroMode+, I knew I was still on the frontier of modding in <strong style="color: orange;">OpenGOAL</strong>. I wanted to make some kind of checkpoint randomizer, like the first game had.
+                        </p>
+                        <p>
+                            The problem is that <strong style="color: cyan;">Jak II</strong> has a linear mission progression. How does the game know which mission you completed in the past?
+                        </p>
+                        <p>
+                            With <strong style="color: yellow;">Jak 1</strong>, the game is structured as a collect-a-thon, so randomized checkpoints are more practical. <strong style="color: cyan;">Jak II</strong> needs more than a simple change.
+                        </p>
+                    </div>
+                </section>
+                <p>To be continued...</p>
+            </article>
+        </div>
+    </main>
 </body>
 </html>
