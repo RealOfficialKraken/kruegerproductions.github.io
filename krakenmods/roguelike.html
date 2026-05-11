@@ -323,7 +323,8 @@
         }
 
         .act-grid,
-        .feature-grid {
+        .feature-showcase-grid,
+        .eco-shard-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 14px;
@@ -333,7 +334,8 @@
         }
 
         .act-grid li,
-        .feature-grid li {
+        .feature-showcase-card,
+        .eco-shard-grid li {
             padding: 18px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
@@ -341,23 +343,56 @@
         }
 
         .act-grid strong,
-        .feature-grid strong {
+        .feature-showcase-card strong,
+        .eco-shard-grid strong {
             display: block;
             margin-bottom: 8px;
             font-family: Roboto Mono, monospace;
         }
 
-        .image-pair {
+        .feature-showcase-card {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-content: start;
             gap: 14px;
         }
 
-        .image-pair img {
+        .feature-showcase-card .journey-image {
             width: 100%;
             max-width: none;
-            height: 100%;
+            margin: 0;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
+        }
+
+        .systems-intro {
+            display: grid;
+            gap: 18px;
+        }
+
+        .systems-intro .journey-image {
+            max-width: 860px;
+        }
+
+        .systems-highlight {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .systems-highlight p {
+            padding: 16px;
+            border: 1px solid rgba(64, 220, 116, 0.16);
+            border-radius: 8px;
+            background: rgba(64, 220, 116, 0.055);
+        }
+
+        .systems-subheading {
+            margin-top: 10px;
+            padding-top: 6px;
+        }
+
+        .eco-shard-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         @media(max-width: 1127px) {
@@ -371,8 +406,9 @@
             .mod-showcase,
             .mod-grid,
             .act-grid,
-            .feature-grid,
-            .image-pair {
+            .feature-showcase-grid,
+            .systems-highlight,
+            .eco-shard-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -392,6 +428,11 @@
             .journey-section-body {
                 padding: 24px;
             }
+
+            .feature-showcase-card .journey-image {
+                height: auto;
+                object-fit: contain;
+            }
         }
 
         @media(max-width: 620px) {
@@ -401,6 +442,18 @@
 
             .journey-section-body {
                 padding: 20px;
+            }
+
+            #systems .journey-section-body {
+                gap: 16px;
+            }
+
+            #systems .feature-showcase-grid {
+                gap: 12px;
+            }
+
+            #systems .feature-showcase-card {
+                padding: 16px;
             }
         }
     </style>
@@ -578,31 +631,51 @@
                 <section class="journey-section" id="systems">
                     <div class="journey-section-body">
                         <h2>Run Systems</h2>
-                        <img class="journey-image" src="Roguelike-health.png" alt="Roguelike Jak II health interface">
-                        <p>
-                            Each time a mission is completed, all enemies gain <strong style="color: rgb(55, 161, 64);">+1 HP</strong>, becoming stronger as each mission goes on.
-                        </p>
-                        <p>
-                            The player must complete each level with as much HP as possible, because Jak does not heal to full HP at the end of each level.
-                        </p>
-                        <p>
-                            Completing a mission at full HP increases the luck stat. The higher this stat is, the more likely enemies are to drop orbs or skull gems during the run.
-                        </p>
-                        <div class="image-pair">
-                            <img class="journey-image" src="Roguelike-shop.png" alt="Roguelike Jak II in-run shop">
-                            <img class="journey-image" src="Roguelike-orbs.png" alt="Roguelike Jak II orb currency screen">
+                        <div class="systems-intro">
+                            <img class="journey-image" src="Roguelike-health.png" alt="Roguelike Jak II health interface">
+                            <div class="systems-highlight">
+                                <p>
+                                    Each completed mission gives every enemy <strong style="color: rgb(55, 161, 64);">+1 HP</strong>, making each step deeper into the run more dangerous.
+                                </p>
+                                <p>
+                                    Jak does not heal to full HP at the end of each level, so finishing cleanly matters as much as finishing quickly.
+                                </p>
+                                <p>
+                                    A full-HP clear increases luck, which improves the odds of enemies dropping orbs and skull gems during the run.
+                                </p>
+                            </div>
                         </div>
-                        <ul class="feature-grid">
-                            <li>
+                        <div class="feature-showcase-grid">
+                            <article class="feature-showcase-card">
+                                <img class="journey-image" src="Roguelike-shop.png" alt="Roguelike Jak II in-run shop">
                                 <strong style="color: rgb(115, 255, 166);">In-Run Shop</strong>
-                                As enemies get stronger, so can the player. Orbs are refashioned into currency for the HipHog shop.
+                                <p>As enemies get stronger, so can the player. Orbs are refashioned into currency for the HipHog shop.</p>
+                            </article>
+                            <article class="feature-showcase-card">
+                                <img class="journey-image" src="Roguelike-orbs.png" alt="Roguelike Jak II orb currency screen">
+                                <strong style="color: rgb(245, 255, 58);">Hub Tokens</strong>
+                                <p>The hub shop uses Tokens. Skull gems convert into Tokens at the end of each run, letting players add items to the in-run shop pool.</p>
+                            </article>
+                        </div>
+                        <img class="journey-image" src="Roguelike-vin.png" alt="Cyber Vin hub shop in Roguelike Jak II">
+                        <h3 class="systems-subheading">Progression-Driven Story</h3>
+                        <p>
+                            Vin needs help acquiring eco shards in specific acts. The progression happens in order, but a skilled player can still complete the entire mod in one run.
+                        </p>
+                        <ul class="eco-shard-grid">
+                            <li>
+                                <strong style="color: rgb(245, 255, 58);">Yellow Eco Shard</strong>
+                                <p>Found in Act 1 by taking it from a random Krimzon Guard.</p>
                             </li>
                             <li>
-                                <strong style="color: rgb(245, 255, 58);">Hub Tokens</strong>
-                                The hub shop uses Tokens. Skull gems convert into Tokens at the end of each run, letting players add items to the in-run shop pool.
+                                <strong style="color: rgb(58, 255, 229);">Blue Eco Shard</strong>
+                                <p>Found in a random Act 2 crate, with better odds from a higher luck stat.</p>
+                            </li>
+                            <li>
+                                <strong style="color: rgb(255, 58, 58);">Red Eco Shard</strong>
+                                <p>Bought from the Act 3 shop for 100 orbs.</p>
                             </li>
                         </ul>
-                        <img class="journey-image" src="Roguelike-vin.png" alt="Cyber Vin hub shop in Roguelike Jak II">
                     </div>
                 </section>
 
