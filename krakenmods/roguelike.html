@@ -683,6 +683,7 @@
                         <p>
                             One of the main problems in Roguelike was what happened when a player had to quit or crashed mid-run. Naturally, all of the player's current items needed to be saved before the run ended.
                         </p>
+                        <p>At this current moment, if the player re-entered the game mid run, all of their items would be gone, and the game wouldn't know which stage the player was in.</p>
                         <p>
                             This created a huge issue with the game's saving system.
                         </p>
@@ -712,7 +713,7 @@
                             Then I use a modulo equation to reverse the number and divide it by a number within a multiple of 10, extracting the exact digit I want to check.
                         </p>
                         <p class="journey-callout blue">
-                            All items use 2 game-save variables, making 16 items possible at the moment. The value is capped at a billion because it is a 32-bit integer and cannot exceed 2.4 billion.
+                            All items use 2 game-save variables, making 16 items possible at the moment. The value is capped at a billion because it is a 32-bit integer and cannot exceed 4.2 billion.
                         </p>
                         <p>
                             This allowed me to save the player's current items if they quit out of the game or crashed. When loading a save, if the specific number place was a 1, the game knew the player had that item.
