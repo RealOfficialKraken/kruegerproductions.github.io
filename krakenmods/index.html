@@ -450,7 +450,7 @@
                 <div class="km-stats-header">
                     <div>
                         <p class="km-eyebrow">Live mod stats</p>
-                        <h3 id="km-stats-title">Current KrakenMODS rankings</h3>
+                        <h3 id="km-stats-title">Out of all mods across all three games:</h3>
                     </div>
                     <p class="km-stats-updated" id="km-stats-updated">Loading stats...</p>
                 </div>
@@ -523,6 +523,10 @@
             }, 0);
         }
 
+        function hasActiveListing(mod) {
+            return Array.isArray(mod.versions) && mod.versions.length > 0;
+        }
+
         function ordinal(value) {
             const suffixRules = new Intl.PluralRules("en-US", { type: "ordinal" });
             const suffixes = {
@@ -535,7 +539,26 @@
             return `${value}${suffixes[suffixRules.select(value)]}`;
         }
 
+        function parseModStats(data) {
+            const rankedMods = Object.entries(data.mods || {})
+                .filter(([, mod]) => hasActiveListing(mod))
+                .map(([id, mod]) => ({
+                    id,
+                    mod,
+                    downloads: totalDownloads(mod)
+                }))
+                .sort((a, b) => b.downloads - a.downloads);
+
+            return {
+                activeModCount: rankedMods.length,
+                entriesById: new Map(rankedMods.map((entry) => [entry.id, entry])),
+                ranksById: new Map(rankedMods.map((entry, index) => [entry.id, index + 1])),
+                lastUpdated: data.lastUpdated
+            };
+        }
+
         async function loadModStats() {
+            const statsTitle = document.getElementById("km-stats-title");
             const updatedText = document.getElementById("km-stats-updated");
 
             try {
@@ -546,19 +569,13 @@
                 }
 
                 const data = await response.json();
-                const rankedMods = Object.entries(data.mods || {})
-                    .map(([id, mod]) => ({
-                        id,
-                        mod,
-                        downloads: totalDownloads(mod)
-                    }))
-                    .sort((a, b) => b.downloads - a.downloads);
+                const stats = parseModStats(data);
 
-                const ranks = new Map(rankedMods.map((entry, index) => [entry.id, index + 1]));
+                statsTitle.textContent = `Out of ${numberFormatter.format(stats.activeModCount)} mods across all three games:`;
 
                 trackedModIds.forEach((id) => {
                     const card = document.querySelector(`[data-mod-id="${id}"]`);
-                    const entry = rankedMods.find((modEntry) => modEntry.id === id);
+                    const entry = stats.entriesById.get(id);
 
                     if (!card || !entry) {
                         return;
@@ -573,11 +590,11 @@
                     }
 
                     downloads.textContent = numberFormatter.format(entry.downloads);
-                    rank.textContent = `#${ordinal(ranks.get(id))}`;
+                    rank.textContent = `#${ordinal(stats.ranksById.get(id))}`;
                 });
 
-                if (data.lastUpdated) {
-                    const updated = new Date(data.lastUpdated);
+                if (stats.lastUpdated) {
+                    const updated = new Date(stats.lastUpdated);
                     updatedText.textContent = `Updated ${updated.toLocaleDateString(undefined, {
                         month: "short",
                         day: "numeric",
@@ -587,6 +604,7 @@
                     updatedText.textContent = "Stats loaded";
                 }
             } catch (error) {
+                statsTitle.textContent = "Out of all mods across all three games:";
                 updatedText.textContent = "Stats temporarily unavailable";
                 document.querySelectorAll(".km-stat-card").forEach((card) => {
                     card.querySelector('[data-stat="downloads"]').textContent = "--";
