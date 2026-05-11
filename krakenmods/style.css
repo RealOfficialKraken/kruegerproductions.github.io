@@ -37,7 +37,7 @@
             box-sizing: border-box;
             box-shadow: 18px 0 44px rgba(0, 0, 0, 0.44);
             transition: 0.24s ease-out;
-            overflow-y: auto;
+            overflow: clip;
         }
 
         .OG-hamburger .navbar-inner::before{
@@ -319,12 +319,14 @@ html, body{
 
 body{
     width: 99vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     inset: 0;
     margin: 0 0;
     font-family: Roboto Mono;
     background-color: rgb(20, 20, 20);
     overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .j-button{
