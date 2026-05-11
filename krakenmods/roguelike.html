@@ -710,7 +710,10 @@
                             The way it works is that I pick a specific digit to represent a certain state in the game's progression that I want to save.
                         </p>
                         <p>
-                            Then I use a modulo equation to reverse the number and divide it by a number within a multiple of 10, extracting the exact digit I want to check.
+                            Then I use a modulo equation to give the remainder of the integer, and divide it by a number within a multiple of 10, extracting the exact digit I want to check.
+                        </p>
+                        <p class="journey-callout green">
+                            In <strong style="color: orange;">GOAL</strong>, this would look something like <strong style="color: cyan;">(= (/ (mod (-> *game-info* continue-deaths) 1000) 100) 1)</strong> to check for a 1 in the hundreds place.
                         </p>
                         <p class="journey-callout blue">
                             All items use 2 game-save variables, making 16 items possible at the moment. The value is capped at a billion because it is a 32-bit integer and cannot exceed 4.2 billion.
