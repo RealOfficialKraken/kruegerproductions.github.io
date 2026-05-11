@@ -172,6 +172,118 @@
             font-weight: 700;
         }
 
+        .km-stats-section{
+            margin-top: 56px;
+        }
+
+        .km-stats-header{
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: end;
+            margin-bottom: 22px;
+        }
+
+        .km-stats-header h3{
+            margin: 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(1.9rem, 4vw, 3.4rem);
+            line-height: 1;
+        }
+
+        .km-stats-updated{
+            margin: 0;
+            color: rgb(156, 163, 175);
+            font-family: Roboto Mono, monospace;
+            font-size: 10pt;
+            text-align: right;
+        }
+
+        .km-stats-grid{
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .km-stat-card{
+            display: grid;
+            grid-template-rows: auto 1fr;
+            min-width: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+                rgb(17, 17, 22);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.26);
+            color: inherit;
+            overflow: hidden;
+            text-decoration: none;
+            transition: 180ms ease border-color, 180ms ease transform, 180ms ease box-shadow;
+        }
+
+        .km-stat-card:hover,
+        .km-stat-card:focus-visible{
+            border-color: rgba(255, 212, 131, 0.34);
+            box-shadow: 0 22px 64px rgba(0, 0, 0, 0.34);
+            outline: none;
+            transform: translateY(-3px);
+        }
+
+        .km-stat-thumbnail{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: rgb(8, 8, 12);
+            object-fit: cover;
+        }
+
+        .km-stat-body{
+            display: grid;
+            gap: 18px;
+            padding: 20px;
+        }
+
+        .km-stat-card h4{
+            margin: 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 15pt;
+            line-height: 1.2;
+        }
+
+        .km-stat-metrics{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .km-stat-metric{
+            min-width: 0;
+            padding: 14px;
+            border: 1px solid rgba(255, 212, 131, 0.16);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .km-stat-label{
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(172, 172, 172);
+            font-family: Roboto Mono, monospace;
+            font-size: 9pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .km-stat-value{
+            display: block;
+            color: rgb(255, 212, 131);
+            font-family: Poppins, sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 800;
+            line-height: 1;
+        }
+
         @media(max-width: 900px){
             .km-home-content{
                 padding: 64px 18px 78px;
@@ -179,8 +291,19 @@
 
             .km-feature-grid,
             .km-solution,
-            .km-footer-note{
+            .km-footer-note,
+            .km-stats-grid{
                 grid-template-columns: 1fr;
+            }
+
+            .km-stats-header{
+                display: grid;
+                gap: 10px;
+                align-items: start;
+            }
+
+            .km-stats-updated{
+                text-align: left;
             }
 
             .km-media-card{
@@ -214,6 +337,7 @@
                     </a>
                     <a class="hm-button" id="nav-button" href="index.html">Home</a>
                     <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+                    <a class="hm-button" id="nav-button" href="hmplus-jak3.html">HM+ Jak 3</a>
                     <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
                     <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
                 </div>
@@ -229,6 +353,7 @@
         </div>
         <div class="navbar-inner">
             <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+            <a class="hm-button" id="nav-button" href="hmplus-jak3.html">HM+ Jak 3</a>
             <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
             <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
         </div>
@@ -320,7 +445,157 @@
                     This site is still a work in progress, so some pages and project details may continue to evolve.
                 </p>
             </div>
+
+            <section class="km-stats-section" aria-labelledby="km-stats-title">
+                <div class="km-stats-header">
+                    <div>
+                        <p class="km-eyebrow">Live mod stats</p>
+                        <h3 id="km-stats-title">Current KrakenMODS rankings</h3>
+                    </div>
+                    <p class="km-stats-updated" id="km-stats-updated">Loading stats...</p>
+                </div>
+
+                <div class="km-stats-grid" id="km-stats-grid">
+                    <a class="km-stat-card" data-mod-id="heromode-plus" href="heromode.html">
+                        <img class="km-stat-thumbnail" src="HMPlusJakII-Thumbnail.png" alt="HeroMode+ Jak II thumbnail">
+                        <div class="km-stat-body">
+                            <h4>HeroMode+ | A Jak II Overhaul</h4>
+                            <div class="km-stat-metrics">
+                                <div class="km-stat-metric">
+                                    <span class="km-stat-label">Downloads</span>
+                                    <span class="km-stat-value" data-stat="downloads">...</span>
+                                </div>
+                                <div class="km-stat-metric">
+                                    <span class="km-stat-label">Most downloaded</span>
+                                    <span class="km-stat-value" data-stat="rank">...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="km-stat-card" data-mod-id="roguelike-jak2" href="roguelike.html">
+                        <img class="km-stat-thumbnail" src="Roguelike-Thumbnail.png" alt="Roguelike Jak II thumbnail">
+                        <div class="km-stat-body">
+                            <h4>Roguelike Jak II</h4>
+                            <div class="km-stat-metrics">
+                                <div class="km-stat-metric">
+                                    <span class="km-stat-label">Downloads</span>
+                                    <span class="km-stat-value" data-stat="downloads">...</span>
+                                </div>
+                                <div class="km-stat-metric">
+                                    <span class="km-stat-label">Most downloaded</span>
+                                    <span class="km-stat-value" data-stat="rank">...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="km-stat-card" data-mod-id="heromode-plus-3" href="hmplus-jak3.html">
+                        <img class="km-stat-thumbnail" src="HMPlusJak3-Thumbnail.png" alt="HeroMode+ Jak 3 thumbnail">
+                        <div class="km-stat-body">
+                            <h4>HeroMode+ | A Jak 3 Overhaul</h4>
+                            <div class="km-stat-metrics">
+                                <div class="km-stat-metric">
+                                    <span class="km-stat-label">Downloads</span>
+                                    <span class="km-stat-value" data-stat="downloads">...</span>
+                                </div>
+                                <div class="km-stat-metric">
+                                    <span class="km-stat-label">Most downloaded</span>
+                                    <span class="km-stat-value" data-stat="rank">...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
         </section>
     </main>
+    <script>
+        const modsStatsUrl = "https://jakmods.dev/mods_formatted.json";
+        const trackedModIds = ["heromode-plus", "roguelike-jak2", "heromode-plus-3"];
+        const operatingSystems = ["windows", "linux", "macos"];
+        const numberFormatter = new Intl.NumberFormat("en-US");
+
+        function totalDownloads(mod) {
+            return (mod.versions || []).reduce((modTotal, version) => {
+                const counts = version.assetDownloadCounts || {};
+                return modTotal + operatingSystems.reduce((sum, os) => sum + Number(counts[os] || 0), 0);
+            }, 0);
+        }
+
+        function ordinal(value) {
+            const suffixRules = new Intl.PluralRules("en-US", { type: "ordinal" });
+            const suffixes = {
+                one: "st",
+                two: "nd",
+                few: "rd",
+                other: "th"
+            };
+
+            return `${value}${suffixes[suffixRules.select(value)]}`;
+        }
+
+        async function loadModStats() {
+            const updatedText = document.getElementById("km-stats-updated");
+
+            try {
+                const response = await fetch(modsStatsUrl);
+
+                if (!response.ok) {
+                    throw new Error(`Stats request failed: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const rankedMods = Object.entries(data.mods || {})
+                    .map(([id, mod]) => ({
+                        id,
+                        mod,
+                        downloads: totalDownloads(mod)
+                    }))
+                    .sort((a, b) => b.downloads - a.downloads);
+
+                const ranks = new Map(rankedMods.map((entry, index) => [entry.id, index + 1]));
+
+                trackedModIds.forEach((id) => {
+                    const card = document.querySelector(`[data-mod-id="${id}"]`);
+                    const entry = rankedMods.find((modEntry) => modEntry.id === id);
+
+                    if (!card || !entry) {
+                        return;
+                    }
+
+                    const thumbnail = card.querySelector(".km-stat-thumbnail");
+                    const downloads = card.querySelector('[data-stat="downloads"]');
+                    const rank = card.querySelector('[data-stat="rank"]');
+
+                    if (entry.mod.thumbnailArtUrl) {
+                        thumbnail.src = entry.mod.thumbnailArtUrl;
+                    }
+
+                    downloads.textContent = numberFormatter.format(entry.downloads);
+                    rank.textContent = `#${ordinal(ranks.get(id))}`;
+                });
+
+                if (data.lastUpdated) {
+                    const updated = new Date(data.lastUpdated);
+                    updatedText.textContent = `Updated ${updated.toLocaleDateString(undefined, {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric"
+                    })}`;
+                } else {
+                    updatedText.textContent = "Stats loaded";
+                }
+            } catch (error) {
+                updatedText.textContent = "Stats temporarily unavailable";
+                document.querySelectorAll(".km-stat-card").forEach((card) => {
+                    card.querySelector('[data-stat="downloads"]').textContent = "--";
+                    card.querySelector('[data-stat="rank"]').textContent = "--";
+                });
+            }
+        }
+
+        loadModStats();
+    </script>
 </body>
 </html>

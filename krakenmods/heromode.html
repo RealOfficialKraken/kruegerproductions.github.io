@@ -30,6 +30,109 @@
             padding: 112px 0 96px;
         }
 
+        .mod-showcase {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+            gap: 34px;
+            align-items: center;
+            width: min(1120px, 100%);
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 56px;
+        }
+
+        .mod-showcase h1 {
+            margin: 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(2.7rem, 7vw, 5.8rem);
+            line-height: 0.98;
+            letter-spacing: 0;
+        }
+
+        .mod-showcase p {
+            max-width: 760px;
+            margin: 22px 0 0;
+            color: rgb(216, 216, 220);
+            font-family: Poppins, sans-serif;
+            font-size: 13pt;
+            line-height: 1.75;
+        }
+
+        .mod-showcase img {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+        }
+
+        .mod-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .mod-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 18px;
+            border: 1px solid rgba(255, 212, 131, 0.36);
+            border-radius: 8px;
+            background: rgba(255, 186, 77, 0.12);
+            color: rgb(255, 228, 184);
+            font-family: Poppins, sans-serif;
+            font-size: 11pt;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 180ms ease background, 180ms ease transform, 180ms ease color;
+        }
+
+        .mod-link:hover,
+        .mod-link:focus-visible {
+            background: rgb(172, 112, 0);
+            color: white;
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        .mod-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            width: min(1120px, 100%);
+            margin: -22px 0 56px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .mod-card {
+            min-width: 0;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.03));
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.24);
+        }
+
+        .mod-card h2 {
+            margin: 0 0 12px;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 18pt;
+            line-height: 1.15;
+        }
+
+        .mod-card p {
+            margin: 0;
+            color: rgb(207, 207, 212);
+            font-family: Poppins, sans-serif;
+            font-size: 11.5pt;
+            line-height: 1.7;
+        }
+
         .journey-hero {
             display: grid;
             grid-template-columns: minmax(0, 1fr) 320px;
@@ -229,6 +332,7 @@
         }
 
         .alert-grid,
+        .extras-image-grid,
         .bug-list {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -254,6 +358,13 @@
             font-family: Roboto Mono, monospace;
         }
 
+        .extras-image-grid img {
+            width: 100%;
+            max-width: none;
+            height: 100%;
+            object-fit: cover;
+        }
+
         @media(max-width: 1127px) {
             .journey-page {
                 width: min(100% - 36px, 760px);
@@ -262,7 +373,10 @@
 
             .journey-hero,
             .journey-shell,
+            .mod-showcase,
+            .mod-grid,
             .alert-grid,
+            .extras-image-grid,
             .bug-list {
                 grid-template-columns: 1fr;
             }
@@ -309,6 +423,7 @@
                     </a>
                     <a class="hm-button" id="nav-button" href="index.html">Home</a>
                     <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+                    <a class="hm-button" id="nav-button" href="hmplus-jak3.html">HM+ Jak 3</a>
                     <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
                     <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
                 </div>
@@ -324,6 +439,7 @@
         </div>
         <div class="navbar-inner">
             <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+            <a class="hm-button" id="nav-button" href="hmplus-jak3.html">HM+ Jak 3</a>
             <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
             <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
         </div>
@@ -334,12 +450,42 @@
     </nav>
 
     <main class="journey-page">
+        <section class="mod-showcase" aria-labelledby="mod-title">
+            <div>
+                <p class="journey-kicker">HeroMode+ | A Jak II Overhaul</p>
+                <h1 id="mod-title">HM+ Jak II</h1>
+                <p>
+                    A Jak II challenge overhaul that started with traffic experiments and grew into a full mod built around tougher encounters, wild modifiers, and a sharper campaign loop.
+                </p>
+                <div class="mod-actions">
+                    <a class="mod-link" href="index.html#km-stats-title">View live ranking</a>
+                    <a class="mod-link" href="https://jakmods.dev/" target="_blank" rel="noreferrer">Open JakMods</a>
+                </div>
+            </div>
+            <img src="HMPlusJakII-Thumbnail.png" alt="HeroMode+ Jak II thumbnail">
+        </section>
+
+        <section class="mod-grid" aria-label="HM+ Jak II highlights">
+            <article class="mod-card">
+                <h2>Upscaled Difficulty</h2>
+                <p>Jak II is already a very difficult game. However, for the gamers who've played it countless times over the years, this mod will have a refreshing difficulty without making it a cheap experience.</p>
+            </article>
+            <article class="mod-card">
+                <h2>New Combat Overhauls</h2>
+                <p>The new difficulty is balanced with 9 Gun Modifiers to obtain, and act as an extra behavior towards the 4 weapons in the game.</p>
+            </article>
+            <article class="mod-card">
+                <h2>Extra Modifiers</h2>
+                <p>Gun Modifiers made the game too easy, even after the upscaled difficulty! To fix this, I added a random modifier to be active at all times. Players can re-roll a new modifier at any time</p>
+            </article>
+        </section>
+
         <header class="journey-hero">
             <div>
                 <p class="journey-kicker">HM+ Jak II Development Log</p>
                 <h1>How HM+ Jak II became a full challenge mod.</h1>
                 <p>
-                    A more readable walkthrough of the experiments, bugs, tuning decisions, and OpenGOAL discoveries that shaped my very first mod.
+                    A summarized walkthrough of the OpenGOAL discoveries that shaped my very first mod.
                 </p>
             </div>
         </header>
@@ -356,6 +502,7 @@
                     <a class="journey-link" href="#alert-levels">Alert Levels</a>
                     <a class="journey-link" href="#heromode">Starting HeroMode+</a>
                     <a class="journey-link journey-link-sub" href="#top-issues">Top Issues</a>
+                    <a class="journey-link journey-link-sub" href="#extras-easter-eggs">Extras & Easter Eggs</a>
                     <a class="journey-link" href="#roguelike-jak2">Developing the Next Mod</a>
                 </nav>
             </aside>
@@ -370,13 +517,14 @@
                         <p class="journey-callout">
                             The starting objective: instead of spawning pedestrians and civilian vehicles, spawn Krimzon Guards and Krimzon vehicles.
                         </p>
+                        <p>This was all I had in mind! I had no intention of making anything more than that.</p>
                         <span class="journey-date">Video date: 5/28/23</span>
                         <video class="journey-video" controls>
                             <source src="Videos/HMplus-1.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <p>
-                            The first attempt did not work cleanly. Some guards paid attention when alerted, while others needed to be hit individually before they attacked.
+                            The first attempt did not work. Some guards paid attention when alerted, while others needed to be hit individually before they attacked.
                         </p>
                         <p>
                             The code I edited was the right idea, but the wrong place to execute it. I did not know how the language worked yet, so I kept switching things around to get a feel for the system.
@@ -437,7 +585,7 @@
                             Initially, I was going to leave it at that: change the guards, but keep the game vanilla. It did not last long.
                         </p>
                         <p>
-                            I wanted the mod to <strong style="color: orange;">push PC hardware to its limit, just as Naughty Dog did with the PS2</strong>. I started looking for attributes I could set to maximum, and found a place to edit turret firing speed in one sewer mission.
+                            I was inspired to <strong style="color: orange;">push the engine to its limit, just as Naughty Dog did with the PS2</strong>. I started looking for attributes I could set to maximum, and found a place to edit turret firing speed in one sewer mission.
                         </p>
                         <span class="journey-date">Video date: 5/31/23</span>
                         <video class="journey-video" controls>
@@ -457,10 +605,19 @@
                             The odds were stacked heavily against the player, so I introduced <strong style="color: orange;">Gun Mods</strong>. Later, when those became too powerful, I leveled the field again with <strong style="color: red;">Random Modifiers</strong>.
                         </p>
                         <p>
-                            Example: <strong style="color: cyan;">Chanced Trip / Gain 10 Metalheads</strong>. Any input can trip Jak, delaying further inputs for a few seconds, but every trip grants currency.
+                            A random modifier is active at all times, and all of them have a give & take.
+                        </p>
+                        <p>
+                            Example: <strong style="color: cyan;">Chanced Trip / Gain 10 Metalheads</strong>. Any input can trip Jak, delaying further inputs for a few seconds, but every trip grants Skull Gems.
                         </p>
                         <p class="journey-callout">
-                            You can re-roll modifiers to get a different one out of 7 modifiers.
+                            You can re-roll modifiers to get a different one out of 7 modifiers at any time.
+                        </p>
+                        <p>
+                            Some of these random modifiers were special, like <strong style="color: red;">TP-FB</strong>, which stands for <strong style="color: cyan;">Teleport to Final Boss</strong>. On death, the player has a chance to get teleported to the MetalKor bossfight, separate from the current save file--but the boss is incredibly difficult! Dying meant loading back the original save that was being played on, which made it cleaner for the player to continue playing the game.
+                        </p>
+                        <p class="journey-callout green">
+                            Beating the final boss meant the same thing, but the player is rewarded with a special & satisfying Gun Modifier.
                         </p>
                         <span class="journey-date">Video date: 10/28/23</span>
                         <video class="journey-video" controls>
@@ -472,6 +629,9 @@
                         </p>
                         <p>
                             Most of the mod's structure was composed of Lisp components, including a full array of "when" statements spanning over 10,000 lines of code.
+                        </p>
+                        <p>
+                            I also disabled Unlimited Ammo, Unlimited DarkJak, and Invulnerability to preserve the difficulty of the mod.
                         </p>
                         <p class="journey-callout">
                             It was not long before the release of the mod on 10/28/23.
@@ -504,7 +664,49 @@
                         </p>
                     </div>
                 </section>
-                <p>To be continued...</p>
+
+                <section class="journey-section" id="extras-easter-eggs">
+                    <div class="journey-section-body">
+                        <h2>Extras & Easter Eggs</h2>
+                        <p>
+                            This mod was a passion project after all, and I love to make things worthwhile. My next idea was to add a simple mini-game based off of BlackJack.
+                        </p>
+                        <p>
+                            The game was called <strong style="color: cyan;">Eco War</strong>, and was playable in the Hip Hog Heaven Saloon to gamble your skull gems.
+                        </p>
+                        <div class="extras-image-grid">
+                            <img class="journey-image" src="EcoWar-Enter.png" alt="Eco War entry screen">
+                            <img class="journey-image" src="EcoWar-Rules.png" alt="Eco War rules screen">
+                        </div>
+                        <p>
+                            You could choose a character from the game as your dealer, and each of them had their own strategy for playing.
+                        </p>
+                        <h3>Easter Eggs</h3>
+                        <p>
+                            Alongside this mini-game, if the player scored 1000 gems or above, and entered the mod menu, they would activate an easter egg.
+                        </p>
+                        <p>
+                            An unknown character starts speaking to the player directly through text. It states to the player that it has the power to give access to the disabled secrets mentioned above, such as Unlimited Ammo, Unlimited DarkJak, and Invulnerability.
+                        </p>
+                        <img class="journey-image" src="EasterEgg.png" alt="Easter egg message screen">
+                        <p class="journey-callout">
+                            Unbeknownst to the player, this would come at a terrible cost.
+                        </p>
+                        <p>
+                            After bringing back 1000, 1500, then 2500 gems, the player is instructed to bring back 99999 gems. The player is then granted the ability to have a very large bid amount.
+                        </p>
+                        <p>
+                            If the player completes this task, the 99999 gems are taken away from the player, and the easter egg begins.
+                        </p>
+                        <p>Upon entering the mod menu, it will contain a chilling message: <strong style="color: purple;">END OF ALL WORLDS ENSURED</strong></p>
+                        <img class="journey-image" src="EasterEgg-2.png" alt="Dark Eco easter egg reveal">
+                        <p class="journey-callout green">
+                            The world is then flooded with Dark Eco. Jak and Daxter's main story-driven element, the time loop, is broken. This sets up the story arc for my next upcoming mod to hit the community!
+                        </p>
+                    </div>
+                </section>
+
+                <a class="mod-link" href="roguelike.html">Enter the Roguelike Mod</a>
             </article>
         </div>
     </main>

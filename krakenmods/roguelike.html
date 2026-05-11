@@ -4,53 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>KrakenMODS | Roguelike</title>
+    <link rel="icon" href="krakenmods-logo.png">
+    <title>KrakenMODS | Roguelike Jak II</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            height: auto;
+            width: 100%;
+            margin: 0;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 18% 4%, rgba(64, 220, 116, 0.16), transparent 30%),
+                radial-gradient(circle at 86% 10%, rgba(124, 58, 237, 0.22), transparent 34%),
+                linear-gradient(180deg, rgb(9, 15, 14) 0%, rgb(16, 16, 20) 48%, rgb(8, 8, 11) 100%);
+            color: white;
+        }
+
+        .mod-page {
+            width: min(1120px, calc(100% - 44px));
+            margin: 0 auto;
+            padding: 112px 0 96px;
+        }
+
+        .mod-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+            gap: 34px;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .mod-kicker {
+            margin: 0 0 12px;
+            color: rgb(115, 255, 166);
+            font-family: Roboto Mono, monospace;
+            font-size: 11pt;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .mod-hero h1 {
+            margin: 0;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: clamp(2.7rem, 7vw, 5.8rem);
+            line-height: 0.98;
+            letter-spacing: 0;
+        }
+
+        .mod-hero p {
+            max-width: 760px;
+            margin: 22px 0 0;
+            color: rgb(216, 216, 220);
+            font-family: Poppins, sans-serif;
+            font-size: 13pt;
+            line-height: 1.75;
+        }
+
+        .mod-hero img {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+        }
+
+        .mod-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .mod-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 18px;
+            border: 1px solid rgba(115, 255, 166, 0.34);
+            border-radius: 8px;
+            background: rgba(64, 220, 116, 0.12);
+            color: rgb(199, 255, 218);
+            font-family: Poppins, sans-serif;
+            font-size: 11pt;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 180ms ease background, 180ms ease transform, 180ms ease color;
+        }
+
+        .mod-link:hover,
+        .mod-link:focus-visible {
+            background: rgb(32, 134, 68);
+            color: white;
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        .mod-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 34px;
+        }
+
+        .mod-card {
+            min-width: 0;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.03));
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.24);
+        }
+
+        .mod-card h2 {
+            margin: 0 0 12px;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 18pt;
+            line-height: 1.15;
+        }
+
+        .mod-card p {
+            margin: 0;
+            color: rgb(207, 207, 212);
+            font-family: Poppins, sans-serif;
+            font-size: 11.5pt;
+            line-height: 1.7;
+        }
+
+        @media(max-width: 900px) {
+            .mod-page {
+                width: min(100% - 36px, 760px);
+                padding-top: 92px;
+            }
+
+            .mod-hero,
+            .mod-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<nav class="navbar-main">
-    <div class="navbar-items">
-        <div class="OG-hamburger">
-            <input type="checkbox" id="sidebar-active">
-            <label for="sidebar-active" class="open-sidebar-button"></label>
-            <div class="navbar-inner">
-                <a class="hp-button" id="nav-button" href="index.html">
-                    <div class="hp-icon"></div>
-                    KrakenMODS
-                </a>
-                <a class="hm-button" id="nav-button" href="index.html">Home</a>
-                <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
-                <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
-                <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
-            </div>
-            <label id="overlay" for="sidebar-active"></label>
-            <div class="links-container">
-                <label for="sidebar-active" class="close-sidebar-button"></label>
-            </div>
-        </div>
-        <a class="hp-button" id="nav-button" href="index.html">
-            <div class="hp-icon"></div>
-            KrakenMODS
-        </a>
-    </div>
-    <div class="navbar-inner">
-        <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
-        <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
-        <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
-    </div>
-    <div class="none"></div>
-    <div class="navbar-right-links">
-        <a class="github-icon" href="https://github.com/RealOfficialKraken"></a>
-        <!-- removed because I'm putting in hyperbuttons to my portfolio page.
-        <button class="sesarch-bar-button">
-            <img src="search.png" class="search-icon">
-            Search
-            <div class="Key">CTRL</div>
-            <div class="Key">K</div>
-        </button>
-        -->
-        </a>
-    </div>
-</nav>
 <body>
-    
+    <nav class="navbar-main">
+        <div class="navbar-items">
+            <div class="OG-hamburger">
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button"></label>
+                <div class="navbar-inner">
+                    <a class="hp-button" id="nav-button" href="index.html">
+                        <div class="hp-icon"></div>
+                        KrakenMODS
+                    </a>
+                    <a class="hm-button" id="nav-button" href="index.html">Home</a>
+                    <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+                    <a class="hm-button" id="nav-button" href="hmplus-jak3.html">HM+ Jak 3</a>
+                    <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
+                    <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
+                </div>
+                <label id="overlay" for="sidebar-active"></label>
+                <div class="links-container">
+                    <label for="sidebar-active" class="close-sidebar-button"></label>
+                </div>
+            </div>
+            <a class="hp-button" id="nav-button" href="index.html">
+                <div class="hp-icon"></div>
+                KrakenMODS
+            </a>
+        </div>
+        <div class="navbar-inner">
+            <a class="hm-button" id="nav-button" href="heromode.html">HM+ Jak II</a>
+            <a class="hm-button" id="nav-button" href="hmplus-jak3.html">HM+ Jak 3</a>
+            <a class="rl-button" id="nav-button" href="roguelike.html">RogueLike</a>
+            <a class="galleries-button" id="nav-button" href="galleries.html">Galleries</a>
+        </div>
+        <div class="none"></div>
+        <div class="navbar-right-links">
+            <a class="github-icon" href="https://github.com/RealOfficialKraken"></a>
+        </div>
+    </nav>
+
+    <main class="mod-page">
+        <section class="mod-hero" aria-labelledby="mod-title">
+            <div>
+                <p class="mod-kicker">Roguelike Jak II</p>
+                <h1 id="mod-title">Roguelike Jak II</h1>
+                <p>
+                    A Jak II experiment focused on replayability, randomized pressure, and progression ideas that push the game past its original mission structure.
+                </p>
+                <div class="mod-actions">
+                    <a class="mod-link" href="index.html#km-stats-title">View live ranking</a>
+                    <a class="mod-link" href="https://jakmods.dev/" target="_blank" rel="noreferrer">Open JakMods</a>
+                </div>
+            </div>
+            <img src="Roguelike-Thumbnail.png" alt="Roguelike Jak II thumbnail">
+        </section>
+
+        <section class="mod-grid" aria-label="Roguelike Jak II highlights">
+            <article class="mod-card">
+                <h2>Replay driven</h2>
+                <p>The mod explores how Jak II can support repeatable runs while still working inside its linear mission progression.</p>
+            </article>
+            <article class="mod-card">
+                <h2>Randomized pressure</h2>
+                <p>Challenge ideas are built around keeping each attempt tense, readable, and different enough to encourage another run.</p>
+            </article>
+            <article class="mod-card">
+                <h2>Built from HM+</h2>
+                <p>Lessons from HeroMode+ shaped the approach: test systems in motion, keep what creates interesting decisions, and iterate.</p>
+            </article>
+        </section>
+    </main>
 </body>
 </html>
